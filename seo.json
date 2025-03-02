@@ -1,0 +1,40 @@
+{
+  "title": "ProEvent - Leading Event & Film Production Staffing in NYC",
+  "description": "ProEvent is New York's leading provider of high-end staffing for events and film productions, catering to billionaires, luxury brands, and elite private gatherings. We specialize in exclusive staffing for film productions, high-profile galas, luxury weddings, and corporate events.",
+  "keywords": "luxury event staffing, high-end film production, VIP event services, elite event planning NYC, billionaire event staffing, exclusive wedding planners, corporate event management, fashion week production, celebrity event staffing, private chef services, luxury hospitality staff, executive film production support, luxury concierge services, New York high-profile events",
+  "author": "ProEvent",
+  "og:title": "ProEvent - Leading Luxury Event & Film Staffing in NYC",
+  "og:description": "We provide world-class staff for film productions, luxury events, and corporate clients, ensuring seamless execution with top-tier professionals.",
+  "og:url": "https://www.proevnt.com",
+  "og:image": "https://www.proevnt.com/assets/branding/og-image.jpg",
+  "twitter:title": "ProEvent - Exclusive Staffing for Luxury Events & Film Productions in NYC",
+  "twitter:description": "We offer premium staffing for elite clients, from high-end film productions to private billionaire events.",
+  "twitter:image": "https://www.proevnt.com/assets/branding/twitter-image.jpg",
+  "twitter:card": "summary_large_image",
+  "robots": "index, follow",
+  "meta_tags": [
+    { "name": "event-staffing-nyc", "content": "High-end event staffing for luxury events and film productions in NYC." },
+    { "name": "vip-hospitality-services", "content": "Exclusive staffing for billionaires, luxury brands, and high-profile clients." },
+    { "name": "film-production-staffing", "content": "Expert staff for film productions, from directors to cinematographers and assistants." },
+    { "name": "luxury-event-planning", "content": "Elite planning and execution of exclusive social gatherings and corporate events." },
+    { "name": "private-chefs-nyc", "content": "Tailored culinary experiences with Michelin-starred private chefs." },
+    { "name": "fashion-week-production", "content": "Specialized event staffing for New York Fashion Week and luxury fashion houses." },
+    { "name": "corporate-vip-events", "content": "Executive corporate event planning and staffing solutions." },
+    { "name": "luxury-concierge-services", "content": "Elite concierge services tailored for high-net-worth individuals." },
+    { "name": "exclusive-party-planning", "content": "Full-service planning for exclusive billionaire and celebrity events." },
+    { "name": "queer-film-industry", "content": "Supporting LGBTQ+ filmmakers with top-tier production staff." },
+    { "name": "high-profile-weddings", "content": "Luxury wedding planning and staffing for exclusive clients." },
+    { "name": "celebrity-event-services", "content": "Elite staffing and event management for high-profile celebrities and social events." },
+    { "name": "bespoke-event-solutions", "content": "Tailor-made event solutions for discerning clients in NYC." },
+    { "name": "premium-staffing-agency", "content": "Leading staffing agency providing premium services for luxury events and film productions." },
+    { "name": "elite-event-coordination", "content": "Professional coordination of elite events and exclusive gatherings." },
+    { "name": "luxury-brand-activation", "content": "Luxury brand activation through exceptional events and experiences." },
+    { "name": "private-event-management", "content": "Discreet and efficient management of private events for affluent clients." },
+    { "name": "high-end-production-services", "content": "Top-tier production services for world-class films and events." },
+    { "name": "exclusive-culinary-experiences", "content": "Unique culinary experiences crafted by top chefs for exclusive events." },
+    { "name": "vip-event-staff-nyc", "content": "Professional VIP staff for luxury events in New York City." }
+  ],
+  "alternate_urls": {
+    "inc_site": "https://www.proeventstaffinginc.com"
+  }
+}

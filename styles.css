@@ -1,0 +1,2406 @@
+/* General Styles */
+body {
+    font-family: -apple-system, "SUSSIE INT'l", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #000;
+    line-height: 1.6;
+}
+
+html, body {
+    overflow-x: hidden; /* Förhindrar horisontell scroll på hela sidan */
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    text-transform: uppercase;
+}
+
+/* Bakgrundselementet */
+.navbar .navbar-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    z-index: -1;
+    transition: backdrop-filter 0.3s ease;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+/* Fix for stacking context and positioning */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    padding: 10px 15px;
+    box-shadow: 0px 4px 6px rgba(88, 88, 88, 0.1);
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+    z-index: 100;
+}
+
+/* Bakgrundseffekt vid scroll */
+.navbar.scrolled .navbar-background {
+    backdrop-filter: blur(5px);
+}
+
+.navbar {
+    height: 60px !important; /* Tvingar en fast höjd på alla sidor */
+}
+
+.navbar .logo img {
+    max-width: 200px !important;
+    height: auto !important;
+    display: block;
+}
+
+/* Innehåll som inte påverkas av suddigheten */
+.navbar .navbar-content {
+    position: relative;
+    z-index: 1;
+}
+
+.navbar .logo {
+    opacity: 0;
+    max-width: 200px;
+    transition: opacity 0.3s ease;
+}
+
+.navbar.scrolled .logo {
+    opacity: 1;
+}
+
+.navbar .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo img {
+    max-width: 200px;
+}
+
+/* Logotypen som ska visas vid landning */
+.logo img.default-logo {
+    display: block;
+}
+
+/* Logotypen som ska visas vid scroll */
+.logo img.scroll-logo {
+    display: none;
+}
+
+/* När användaren har scollat, visa scroll-loggan */
+.scrolled .logo img.default-logo {
+    display: none;
+}
+
+.scrolled .logo img.scroll-logo {
+    display: block;
+}
+
+.whoweare-page .nav-left a, 
+.whoweare-page .nav-right a {
+    display: flex;
+    align-items: center; /* Säkerställer att texten i länkar är vertikalt centrerad */
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    line-height: 1.4 !important;
+    font-family: -apple-system, "SUSSIE INT'l", sans-serif !important;
+    text-decoration: none;
+}
+
+
+/* För att alltid visa loggan på desktop */
+@media (min-width: 1024px) {
+    /* Visa loggan direkt på previousclients.html och whoweare.html */
+    .previous-clients-page .logo,
+    .whoweare-page .logo {
+        opacity: 1 !important; /* Gör loggan synlig direkt */
+        transition: opacity 0.3s ease;
+    }
+
+    /* Detta kan justeras för att göra loggan synlig utan att scroll krävs */
+    .navbar.scrolled .logo {
+        opacity: 1;
+    }
+}
+
+/* Styling för länkar och andra element */
+.nav-desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-size: 12px !important;
+    font-weight: 400;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    gap: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* Hover-effekt för länkar i navbaren */
+.nav-left a, .nav-right a {
+    text-decoration: none;
+    font-size: 12px !important;
+    color: #fff;
+    font-weight: 400;
+    transition: color 0.9s ease; /* Lägg till transition för att skapa smooth animation */
+}
+
+.nav-left a:hover, .nav-right a:hover {
+    color: hsla(0, 0%, 83%, 0.5) !important; /* Ändra färg på hover */
+}
+
+/* Lägg till eventuella ytterligare hover-effekter på andra element */
+
+/* Ändra färg på navbaren vid scroll */
+.navbar.scrolled {
+    background-color: #fff; /* Vit bakgrundsfärg för navbar */
+    transition: background-color 0.3s ease;
+}
+
+/* Ändra färg på navbar-länkar vid scroll */
+.nav-desktop a.dark {
+    color: #000; /* Svart färg för länkar */
+}
+
+/* Lägg till grå hover-effekt för svarta länkar */
+.nav-desktop a.dark:hover {
+    color: #808080; /* Grå färg vid hover */
+}
+
+/* Ändra färg på burgerlinjer vid scroll */
+.burger-line.dark {
+    background-color: #000; /* Svart färg för linjer */
+}
+
+/* Smooth färgövergång för alla navbar-element */
+.nav-desktop a, .burger-line, .navbar {
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Specifika stilar för sidan previousclients.html */
+.previous-clients-page .nav-left a,
+.previous-clients-page .nav-right a {
+    color: #000 !important; /* Gör länkarna svarta */
+}
+
+/* Lägg till hover-effekt som gör länkarna grå */
+.previous-clients-page .nav-left a:hover,
+.previous-clients-page .nav-right a:hover {
+    color: rgba(128, 128, 128, 0.5) !important; /* Länkarna blir grå på hover */
+}
+
+/* Burger-line förblir svart */
+.previous-clients-page .burger-line {
+    background-color: #000 !important; /* Gör burger-linjerna svarta */
+}
+
+/* För att ändra bakgrundsfärg när navbaren scrollas */
+.burger-line.scrolled {
+    background-color: rgb(0, 0, 0); /* Förändrad bakgrundsfärg vid scroll */
+}
+
+/* För att ändra färg på navbar-länkar vid scroll för 'previousclients.html' */
+.previous-clients-page .nav-desktop a.dark {
+    color: #000 !important; /* Länkarna på previousclients ska vara svarta */
+}
+
+/* Lägg till smooth transition på länkar på previousclients-sidan */
+.previous-clients-page .nav-desktop a {
+    transition: color 0.3s ease; /* Lägger till en mjuk övergång på färgändringen */
+}
+
+/* Valfri stil för smooth transition på hover */
+.previous-clients-page .nav-left a:hover,
+.previous-clients-page .nav-right a:hover {
+    transition: color 0.3s ease !important;
+}
+
+/* Mobile menu */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    color: #000000;
+    padding-top: 20px;
+    z-index: 101;
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+}
+
+.mobile-menu.open {
+    transform: translateX(0);
+}
+
+.mobile-menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 40px;
+    list-style: none;
+    padding: 0;
+}
+
+.mobile-menu li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-align: left;
+    width: 100%;
+    padding-left: 20px;
+}
+
+.mobile-menu .menu-header {
+    display: flex;
+    justify-content: flex-start; /* Flyttar logotypen till vänster */
+    align-items: center;
+    padding: 20px; /* Justera efter behov */
+}
+
+
+.mobile-logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+    align-self: flex-start;
+}
+
+/* Mobile burger menu */
+.burger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 16px;
+    cursor: pointer;
+    z-index: 102;
+}
+
+.burger-line {
+    height: 1px;
+    background-color: #fff;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.burger-menu .burger-line:nth-child(2) {
+    opacity: 0;
+}
+
+/* Animation for burger lines turning into an 'X' */
+.burger-menu.open .burger-line {
+    background-color: #000;
+}
+
+.burger-menu.open .burger-line:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 8px;
+}
+
+.burger-menu.open .burger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.open .burger-line:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -8px;
+}
+
+/* Hero Section */
+#hero {
+    height: 87vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden; /* Prevent overflow of the video */
+}
+
+/* Video container */
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place the video behind the logo */
+}
+
+/* Video styling */
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    -webkit-overflow-scrolling: touch;
+    object-fit: cover;
+    transform: scale(1.01);
+}
+
+/* Logo styling */
+.hero-logo {
+    max-width: 200px;
+    height: auto;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1; /* Ensure the logo is in front of the video */
+    background: transparent; /* Ensure transparency */
+}
+
+/* Hero2 Section */
+#hero2 {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    font-weight: 400;
+    height: 110vh;
+    background-color: black;
+    color: #fff;
+    position: relative;
+    font-weight: 400;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    flex-direction: row;
+}
+
+/* Left section (text box) */
+.hero2-left {
+    background-color: transparent;
+    color: white;
+    z-index: 10;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    font-weight: 400;
+    max-width: 930px;
+    height: 100%;
+}
+
+/* Right section (image) */
+.hero2-right {
+    position: relative;
+    height: 100%;
+    width: 50%;
+    max-width: 930px;
+}
+
+.hero2-right img.event-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center left;
+}
+
+/* Text container adjustments */
+.text-box {
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    padding: 20px;
+    padding-left: 100px;
+    height: 100%;
+    width: 70%;
+    max-width: 715px;
+}
+
+.toggle-menu {
+    position: absolute;
+    top: -5vh; /* Justera om nödvändigt */
+    left: 45%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .toggle-point {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: white;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .toggle-point.active {
+    width: 16px;
+    height: 8px;
+    border-radius: 10px;
+    background-color: white;
+    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+  }
+  
+
+/* Title (h2) */
+.text-box h2 {
+    font-weight: 400;
+    font-size: 16px;
+    margin: 0 0 10px;
+}
+
+/* Subtitle (h3) */
+.text-box h3 {
+    font-weight: 400;
+    font-size: 12px;
+    margin: 0 0 10px;
+    margin-bottom: 10%;
+}
+
+/* Paragraph (p) */
+.text-box p {
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0 0 50px;
+    width: 70%;
+}
+
+/* Event1 Text Box - Text at the bottom */
+.event1 {
+    display: flex;
+    font-weight: 400;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 20%;
+}
+
+.event1 h2 {
+    order: -1;
+    font-weight: 400;
+    padding-bottom: 10%;
+    margin-bottom: 30%;
+    width: 100%;
+    font-size: 16px;
+}
+
+.event1 p {
+    font-weight: 400;
+    padding-bottom: 10%;
+}
+
+/* Event2 Text Box - Text centered vertically */
+.event2 {
+    justify-content: center;
+    font-weight: 400;
+}
+
+.event2 h2 {
+    display: none;
+    font-weight: 400;
+}
+
+/* Event3 - Title under the description */
+.event3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 20%;
+    font-weight: 400;
+}
+
+.event3 h2 {
+    order: 2;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.event3 p {
+    order: 1;
+    font-weight: 400;
+    margin-bottom: 30%;
+    width: 70%;
+}
+
+/* Styling för kort 4 – liknande övriga event-kort */
+.event4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 20%;
+    font-weight: 400;
+  }
+  
+  .event4 h2 {
+    order: 1;
+    font-weight: 400;
+    font-size: 16px;
+  }
+  
+  .event4 h3 {
+    order: 2;
+    font-weight: 400;
+    font-size: 12px;
+    margin: 0 0 10px;
+  }
+  
+  .event4 p {
+    order: 3;
+    font-weight: 400;
+    margin-bottom: 30%;
+    width: 70%;
+  }
+  
+
+/* Adjustments for scroll on active point */
+.toggle-point.active {
+    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+}
+
+/* Adjustments for responsiveness */
+@media (min-width: 769px) {
+    #hero2 {
+        flex-direction: row;
+    }
+
+    .hero2-left, .hero2-right {
+        width: 50%;
+        max-width: 915px;
+        height: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    #hero {
+        height: 100vh;
+    }
+
+    #hero2 .hero2-left {
+        background-color: transparent !important;
+    }
+    
+    #hero2 {
+        flex-direction: column-reverse;
+        font-weight: 400;
+        background-color: transparent !important;
+    }
+
+    .hero2-left, .hero2-right {
+        width: 100%;
+        flex-direction: column;
+        position: relative; /* Lägg till för att positionera det relativa för de inre elementen */
+        background-color: transparent !important;
+    }
+
+    .hero2-left {
+        padding: 20px;
+        background-color: transparent !important;
+    }
+
+    .text-box {
+        padding-left: 30px;
+        padding-right: 20px;
+        background-color: transparent !important;
+        width: 90%; /* Gör text-boxen lika bred som föräldern */
+        position: absolute; /* Gör så att den kan positioneras ovanpå bilden */
+        top: -350px; /* Flytta upp text-boxen med 200px */
+        left: 0; /* Sätt den längst till vänster */
+        z-index: 10; /* Säkerställer att text-boxen ligger ovanpå */
+        height: 100%; /* Gör så att text-boxen fyller hela höjden */
+        box-sizing: border-box; /* För att säkerställa att padding inte ändrar höjden */
+    }
+
+    .text-box p {
+        width: 90%; /* Gör text-boxen lika bred som föräldern */
+    }
+
+    .text-box h2, .text-box h3, .text-box p {
+        margin: 0 0 5px; /* Minska avståndet mellan titlar och text */
+        padding: 1%;      /* Se till att det inte finns extra padding */
+    }
+
+    /* Event1 - Justera paddingen för att texten ska komma närmare */
+    .event1 h2 {
+        padding-bottom: 45%; /* Minska padding */
+        margin-bottom: 20%;  /* Minska avståndet till beskrivningen */
+        margin-top: -99%;
+        font-size: 18px !important;
+        font-weight: 400 !important;
+    }
+
+    .event1 h3 {
+        margin-top: -20%; /* Minska avståndet i event3 */
+    }
+    
+    .event2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-top: -100px; /* Flytta upp event2 */
+    }
+
+    .event3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-top: -150px; /* Flytta upp event2 */
+    }
+
+    .event2 h3 {
+        margin-top: -20%;
+    }
+
+    /* Event3 - Minska avståndet på responsiv vy */
+    .event3 h2 {
+        margin-top: 150px; /* Flytta upp event3 */
+        font-size: 18px !important;
+        font-weight: 400 !important;
+    }
+
+    .event3 p {
+        margin-bottom: 5%; /* Minska avståndet i event3 */
+    }
+
+    .event3 h3 {
+        margin-top: -30%;
+    }
+
+    .text-box h2 {
+        font-size: 14px; /* Ändrar storlek på titeln */
+    }
+
+    .hero2-right img.event-image {
+        width: 100%; /* Bibehåll bildens aspektförhållande */
+        object-fit: cover; /* Beskär bilden vid behov */
+        height: 100vh;
+    }
+
+    .toggle-menu {
+        position: absolute;
+        top: -5vh; /* Position it below the image */
+        left: 45%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: row; /* Horizontal layout for points */
+        gap: 10px;
+    }
+    .toggle-point {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: white;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    .toggle-point.active {
+        width: 16px;
+        height: 8px;
+        border-radius: 10px;
+        background-color: white;
+        transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+    }
+
+    #hero2 .text-hero-container .hero2-left {
+        background-color: transparent;
+    }
+    
+}
+
+/* Fade-out and fade-in animations */
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* CSS for sweep animation */
+.sweep-in {
+    animation: sweepIn 0.5s ease forwards;
+}
+
+@keyframes sweepIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+#hero3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff;
+    color: #000;
+    position: relative;
+    overflow: hidden;
+    flex-direction: row;
+    max-width: 1830px; /* Total maxbredd för hero */
+    margin: 0 auto;
+    width: 100%; /* Gör att den sträcker sig över hela skärmen */
+}
+
+.hero3-left, .hero3-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1; /* Delar lika på utrymmet */
+    height: 100%; /* Se till att sektionerna fyller hela höjden på hero */
+}
+
+.hero3-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1; /* Delar lika på utrymmet */
+    height: 100%; /* Se till att sektionerna fyller hela höjden på hero */
+    padding-bottom: 100px;
+}
+
+.hero3-right img.event-image {
+    width: 100%;
+    height: 100%; /* Gör att bilden fyller hela höjden */
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Responsiv design för Hero3 */
+@media (min-width: 769px) {
+    #hero3 {
+        flex-direction: row; /* Se till att sektionerna är på rad */
+    }
+
+    .hero3-left, .hero3-right {
+        flex: 1; /* Jämnt fördelade på bredden */
+        width: 50%;
+        max-width: 915px; /* Maxbredden för båda sektionerna */
+        height: 100%; /* Fyller hela höjden */
+    }
+}
+
+/* Adjustments for responsiveness */
+@media (max-width: 768px) {
+    #hero3 {
+        flex-direction: column; /* Staplar sektionerna vertikalt på små skärmar */
+        max-width: 100%; /* Låt sektionen ta upp hela bredden på små skärmar */
+        height: 90vh;
+    }
+
+    .hero3-left, .hero3-right {
+        flex: none;
+        width: 100%; /* Gör varje sektion lika bred som skärmen */
+        max-width: none; /* Ignorera maxbredden på små skärmar */
+        margin-bottom: 100px; /* Skapar mellanrum mellan sektionerna */
+        height: auto; /* Tillåt höjd att justeras automatiskt för små skärmar */
+    }
+
+    .hero3-left {
+        text-align: center; /* Centrerar texten för små skärmar */
+    }
+}
+
+/* Divider Section */
+.divider {
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #000;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.divider h3 {
+    font-size: 12px;
+    max-width: 100%; 
+    font-weight: 400;
+    text-align: left;
+    word-wrap: break-word; /* Ser till att texten bryts vid behov */
+    white-space: normal; /* Tillåter texten att brytas */
+    width: 1450px;
+    padding-left: 30px;
+}
+
+.divider-clients h3 {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    font-size: 14px;
+    max-width: 100%; 
+    font-weight: 400;
+    text-align: left;
+    width: 1450px;
+    padding-left: 30px;
+}
+
+.black-bg {
+    background-color: #000000;
+    color: #fff;
+}
+
+.white-bg {
+    background-color: #ffffff;
+    color: #000;
+}
+
+/* Små tablets och mobiler (376px till 768px) */
+@media (max-width: 768px) {
+    .custom-divider {
+        background-color: transparent; /* Gör bakgrunden transparent */
+        padding-top: 20px; /* Flytta upp sektionen */
+        padding-bottom: 20px;
+        position: relative; /* Lägg till positionering för att kunna flytta texten */
+    }
+
+    .custom-divider h3 {
+        font-size: 12px;
+        padding-bottom: 10px;
+        width: 90%;
+        font-weight: 400;
+        text-align: left; /* Centrerar texten */
+        margin-top: 0;
+        color: #fff; /* Gör texten svart */
+        position: absolute; /* Flyttar texten absolut inom sektionen */
+        top: -220px; /* Flyttar texten uppåt inom sektionen */
+        left: 50%; /* Centrerar texten horisontellt */
+        transform: translateX(-50%); /* Justera för att säkerställa att texten är exakt centrerad */
+    }
+
+    .divider-clients {
+        padding-top: 80px;
+        padding-bottom: 40px;
+    }
+}
+
+/* Quote container for positioning */
+.quote-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: flex-start;
+    align-items: flex-start; /* Align items to the left */
+    height: 100px; 
+    width: 1430px; 
+    margin: 0 auto; 
+    position: relative; /* Makes it possible to use z-index */
+    z-index: 10; /* Makes this section appear above others */
+    background-color: white; /* Add background color if necessary */
+    margin-top: -50px;
+    padding-bottom: 100px;
+}
+
+/* Fade transition for the quotes */
+.quote {
+    font-size: 14px;
+    color: #6B6B6B;
+    opacity: 0; /* Start with opacity 0 */
+    -webkit-transition: opacity 1s ease-in-out; /* WebKit-specific transition for iOS */
+    transition: opacity 1s ease-in-out; /* Standard transition */
+    text-align: left; 
+    width: 80%;
+    padding-top: 100px;
+    padding-left: 40px;
+    margin-right: 20px;
+}
+
+/* Style for the quote text */
+.quote-text {
+    display: block;
+}
+
+/* Style for the author name */
+.author {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+    padding: 10px;
+}
+
+/* Add specific class for active quote visibility */
+.quote.active {
+    opacity: 1; /* Ensure it's visible when active */
+}
+
+
+/* Gör hela sektionen 100% bred */
+#new-clients {
+    width: 100%;
+    padding: 80px 0; /* Utrymme ovanför och under innehållet */
+    padding-left: 20px;
+}
+
+/* Centrera innehållet horisontellt */
+.new-client-list {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap; /* Gör att bilderna radbryts om det behövs */
+    gap: 50px; /* Avstånd mellan bilderna */
+    max-width: 1430px; /* Begränsa bredden på innehållet */
+    margin: 0 auto; /* Centrera innehållet horisontellt */
+}
+
+/* Styling för bilderna (valfritt) */
+.new-client-list img {
+    width: 130px; /* Begränsa bildens storlek */
+    height: auto;
+    object-fit: contain; /* Bevara proportioner */
+}
+
+
+/* Klient-sektion */
+#clients {
+    padding: 0 30px;
+    background-color: #ffffff;
+    display: flex;
+    font-weight: 400;
+    justify-content: center;
+    max-width: 1430px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Klient-lista */
+.client-list {
+    display: flex;
+    font-weight: thin;
+    font-size: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 100px;
+    width: 100%;
+}
+
+#clients .see-all-container {
+    position: absolute;  
+    bottom: 0;  
+    width: 100%;
+    padding-bottom: 0px; 
+}
+
+
+/* Uppdaterad styling för .see-all */
+.secondary-btn.see-all {
+    position: relative; /* Ändra till 'relative' om du vill hålla knappen i sitt normala flöde */
+    margin-bottom: 10px; /* Justera avståndet om nödvändigt */
+    font-family: -apple-system, "SUSSIE INT'l", sans-serif;
+}
+
+/* Button Styling */
+.secondary-btn {
+    all: unset;
+    font-family: -apple-system, "SUSSIE INT'l", sans-serif;
+    color: #000000;
+    font-size: 12px;
+    cursor: pointer;
+    display: inline-flex; /* Gör knappen till en flex-container */
+    align-items: center; /* Centrera både texten och pilen vertikalt */
+    gap: 5px; /* Ger lite avstånd mellan texten och pilen */
+    margin-left: 30px;
+}
+
+.secondary-btn:hover {
+    color: #aaa;
+}
+
+.secondary-btn .footer-arrow-img {
+    width: 12px; /* Anpassa storleken på pilen */
+    font-family: -apple-system, "SUSSIE INT'l", sans-serif;
+    height: 12px;
+    background-image: url('pictures/arrowblack.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: background-image 0.3s ease;
+}
+
+.secondary-btn:hover .footer-arrow-img {
+    background-image: url('pictures/arrowgrey.webp');
+}
+
+/* För att se till att alla knappar med pil är i linje */
+button.submit-btn,
+.secondary-btn a,
+footer a {
+    display: inline-flex;
+    font-family: -apple-system, "SUSSIE INT'l", sans-serif;
+    align-items: center;
+}
+
+button.submit-btn .arrow,
+.secondary-btn .arrow,
+footer a .arrow {
+    font-size: 12px; /* Justera storleken på pilen */
+    margin-left: 5px; /* Lägger till lite avstånd mellan text och pil */
+    transform: translateX(4px); /* Skiftar pilen till höger */
+    font-family: -apple-system, "SUSSIE INT'l", sans-serif;
+}
+
+.staff-section {
+    max-width: 769px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.staff-container {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.staff-member {
+    display: flex;
+    align-items: flex-start; /* Align content to the top */
+    margin-bottom: 40px; /* Reduced space between sections */
+    flex-wrap: wrap;
+}
+
+.staff-member .staff-image {
+    flex: 1;
+    padding: 0px; /* Reduced padding to bring content closer */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Vertically align the image and caption */
+}
+
+/* Staff image styles */
+.staff-member .staff-image img {
+    width: 100%; /* Let the image fill the container */
+    max-width: 100%; /* Prevent image from exceeding the container's width */
+    height: auto; /* Maintain the aspect ratio */
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.staff-member .staff-info {
+    flex: 1;
+    padding: 10px; /* Reduced padding to bring content closer */
+    font-size: 12px;
+    max-width: 300px;
+    align-items: flex-start; /* Align content to the top */
+}
+
+.staff-member .staff-info h2 {
+    margin-bottom: 5px; /* Reduced margin between title and text */
+}
+
+.staff-member .staff-info .bio {
+    color: #555;
+}
+
+.image-caption {
+    margin-right: 100px;
+}
+
+.staff-member .staff-image .image-caption {
+    color: #aaa;
+    margin-top: 5px; /* Reduced space between image and caption */
+    font-size: 12px;
+    text-align: left; /* Align caption left with image */
+    display: block; /* Ensure caption is a block element */
+}
+
+/* Reverse order for alternating sections */
+.staff-member.reversed {
+    flex-direction: row-reverse;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .staff-member {
+        flex-direction: column;
+        align-items: flex-start; /* Align content to the top on small screens */
+    }
+
+    .staff-member .staff-image {
+        padding: 10px;
+    }
+
+    .staff-member .staff-info {
+        padding: 10px;
+    }
+}
+
+
+/* Team Image Section */
+#team {
+    width: 100%;
+    max-height: 1080px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+.team-images-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.team-row {
+    display: flex;
+    justify-content: space-between; /* Updated to use space-between for better image spacing */
+    gap: 10px; /* Adds space between images */
+}
+
+#team {
+    max-width: 1440px; /* Förhindrar att föräldern blir för bred på stora skärmar */
+    margin: 0 auto; /* Centrerar innehållet */
+}
+
+.team-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive Media Queries */
+
+#team, .team-row, .team-img {
+    max-height: none !important; /* Säkerställ att höjden inte begränsas */
+}
+
+
+/* Små mobiler (max-width: 768px) */
+@media (max-width: 768px) {
+    .team-row {
+        flex-wrap: wrap; /* Ensures images wrap correctly */
+        gap: 10px;
+    }
+
+    /* Show only 3 images per row on mobile */
+    #row1, #row2, #row3 {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    /* Hide the 4th row on mobile */
+    #row4, #row3 {
+        display: none;
+    }
+
+    .team-img {
+        width: calc(33.33% - 10px); /* 3 images per row with some space between */
+    }
+
+    /* Stack the images vertically on small screens if needed */
+    #team {
+        max-height: none; /* Allow vertical stacking of images */
+        padding-bottom: 10px; /* Add some space at the bottom */
+    }
+}
+
+/* Stora desktops (1367px till 1920px) */
+@media (min-width: 1367px) and (max-width: 1920px) {
+    .team-img {
+        width: 25%; /* Images are still displayed in 4 rows with 4 items each */
+    }
+}
+
+/* Extra stora desktops (1921px och större) */
+@media (min-width: 1921px) {
+    .team-img {
+        width: 20%; /* Images are displayed in 5 items per row on large desktops */
+    }
+}
+
+
+/* Event Cards container */
+#events {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    background-color: #fff;
+    max-width: 1430px;
+    margin: 0 auto;
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 50px;
+    height: auto;
+}
+
+/* Event Cards */
+.event-card {
+    width: 30%;
+    background-color: #fff;
+    font-weight: 400;
+    text-align: left;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    min-height: 450px;
+}
+
+/* Event Card Image */
+.event-card img {
+    width: 100%;
+    height: 300px; /* Exempel på att sätta en specifik höjd */
+    object-fit: cover; /* Bilden ska täcka hela området utan att bli förvrängd */
+    display: block;
+    flex-grow: 1;
+}
+
+
+/* Svart bakgrund Event Card */
+.event-card.black-bg {
+    background-color: #000;
+    font-size: 12px;
+    color: #fff;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+    width: 30%;
+    height: 450px;
+    box-sizing: border-box;
+    min-height: 450px;
+}
+
+/* Rubrik i svart bakgrund */
+.event-card.black-bg h4 {
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+/* Paragraf i svart bakgrund */
+.event-card.black-bg p {
+    font-weight: 400;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+/* Pilar i svart bakgrund */
+.event-card.black-bg .arrows {
+    display: flex;
+    font-weight: 400;
+    justify-content: space-between;
+    width: 50px;
+    margin-top: 10px;
+}
+
+.event-card.black-bg .arrows span {
+    font-size: 24px;
+    font-weight: 400;
+    color: #fff;
+    cursor: pointer;
+}
+
+.arrows span {
+    font-size: 36px; /* Behåll den önskade storleken */
+    font-weight: 400; /* Gör pilarna mycket tunnare (lägre vikt) */
+    display: inline-block;
+    transform: scale(0.6, 1.5); /* Skalar pilarna för att göra dem tunnare och högre */
+    line-height: 1;
+    margin-top: -140px; /* Justera positionen om det behövs */
+}
+
+#left-arrow, #right-arrow {
+    font-family: PGothic; /* Smalare font */
+    font-weight: thin; /* Får pilarna att vara tunnare */
+}
+
+
+/* Text container till höger om korten */
+.text-container {
+    width: 30%;
+    font-weight: 400;
+    text-align: right;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 450px;
+    box-sizing: border-box;
+}
+
+/* Text container till höger om korten */
+.text-container {
+    font-weight: 400;
+    width: 30%;
+    text-align: right;
+    padding-left: 20px;
+}
+
+/* Mörk overlay för hela sidan */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45); /* Mörk bakgrund med 15% opacity */
+    z-index: 998; /* Ligger bakom popupen */
+    display: none; /* Döljer overlayn som standard */
+}
+
+/* När popupen visas, visa overlayn också */
+.popup.show + .overlay {
+    display: block;
+}
+
+/* General Popup Styles */
+.popup, .join-us-popup {
+    display: none;
+    position: fixed;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+}
+
+.popup.show, .join-us-popup.show {
+    display: flex;
+}
+
+.popup {
+    display: none;
+    /* Andra stilregler */
+}
+
+.popup.open {
+    display: block;
+    /* Stilar för aktiv popup */
+}
+
+
+/* Popup Content Styles */
+.popup-content, .join-us-popup .popup-content {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    padding-top: 85px;
+    padding-left: 90px;
+    padding-right: 60px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+/* Popup Header (Title + Close Button) */
+.popup-header {
+    display: flex;
+    justify-content: space-between;  /* Space between title and close button */
+    align-items: center;  /* Vertically center the title and button */
+    margin-bottom: 20px;  /* Space between header and form */
+}
+
+.close-btn {
+    font-size: 26px;
+    background: transparent;
+    border: none;
+    font-family: -apple-system, "SUSSIE INT'l", sans-serif;
+    color: #000;
+    cursor: pointer;
+    padding: 0;
+    position: absolute;
+    right: 40px;
+    top: 85px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrerar linjerna vertikalt */
+    align-items: center; /* Centrerar linjerna horisontellt */
+    width: 30px;
+    height: 30px;
+    gap: 0; /* Avlägsna gap för att linjerna ska vara exakt på plats */
+}
+
+.close-line {
+    width: 100%;
+    height: 1px; /* Håller linjerna lika tjocka */
+    background-color:#000; /* Normal tillstånd är ljusgrå */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Mjuk övergång för både transform och färg */
+}
+
+/* Normal tillstånd - linjerna bildar ett kryss */
+.close-btn .close-line:nth-child(1) {
+    transform: rotate(45deg) translate(0, 0); /* Översta linjen roterar 45 grader utan förskjutning */
+}
+
+.close-btn .close-line:nth-child(2) {
+    transform: rotate(-45deg) translate(0, 0); /* Nedersta linjen roterar -45 grader utan förskjutning */
+}
+
+/* Hover animation */
+.close-btn:hover .close-line:nth-child(1),
+.close-btn:hover .close-line:nth-child(2) {
+    background-color: rgba(169, 169, 169, 0.5); /* Color change to black */
+}
+
+/* When clicked - lines form an 'X' */
+.close-btn.clicked .close-line:nth-child(1) {
+    transform: rotate(45deg); /* Top line rotates to form the X */
+}
+
+.close-btn.clicked .close-line:nth-child(2) {
+    transform: rotate(-45deg); /* Bottom line rotates to form the X */
+}
+
+
+/* Form Styles */
+.join-us-popup form,
+.popup form {
+    width: 100%;
+    max-width: 1430px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    text-align: left;
+}
+
+/* Form Container */
+.form-container {
+    max-width: 1430px;
+    margin: 0 auto;
+    padding: 0px 0px;
+    position: relative;
+    background-color: #fff;
+    text-align: left;
+    padding: 20px;
+}
+
+.form-section {
+    max-width: 490px;
+}
+
+.form-content-box {
+    max-width: 1430px;
+    margin: 0 auto;
+    padding: 0px 0px;
+    background-color: #fff;
+    text-align: left; /* Justerar texten till vänster */
+}
+
+.form-content-box * {
+    text-align: left; /* Säkerställer att även alla underliggande element är vänsterjusterade */
+    padding-left: 0px;   /* Sätt eventuell vänster marginal på 0 om den behövs */
+}
+
+.form-content-box h1 {
+    color: #000000;
+    font-size: 12px;
+    font-weight: 100;
+    padding-top: 200px;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+.popup-header h1 {
+    color: #000000;
+    font-size: 12px;
+    padding-left: 0px;
+    font-weight: 400;
+}
+
+/* Form Field */
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+    color: #A4A4A4;
+    font-family: -apple-system, "SUSSIE INT'l", sans-serif;
+}
+
+.form-group label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #A4A4A4;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #e4e4e4;
+    padding: 14px 0 4px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+/* Background color for select */
+.form-group select {
+    background-color: #ffffff;
+    padding: 12px 10px;
+    font-size: 12px;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.select-label {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+#topic-label {
+    position: relative;
+    top: 10px;
+}
+
+/* Focus Effect for Form Fields */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-bottom: 1px solid #686868;
+}
+
+/* Label Movement on Focus or Value */
+.form-group input:focus ~ label,
+.form-group select:focus ~ label,
+.form-group textarea:focus ~ label,
+.form-group input:not(:placeholder-shown) ~ label,
+.form-group select:not(:placeholder-shown) ~ label,
+.form-group textarea:not(:placeholder-shown) ~ label {
+    top: 0;
+    font-size: 12px;
+    color: #686868;
+    transform: translateY(-50%);
+}
+
+/* Join Us and Popup Header Titles */
+.popup-content h1, .join-us-popup .popup-content h1,
+.popup-content h2, .join-us-popup .popup-content h2,
+.popup-content h3, .join-us-popup .popup-content h3 {
+    font-size: 12px;
+    color: #000;
+    font-weight: 400;
+    margin-bottom: 10px;
+    padding-left: 20px;
+}
+
+.popup-content h2,
+.popup-content h3,
+.join-us-popup .popup-content h2,
+.join-us-popup .popup-content h3 {
+    color: #888;
+}
+
+.dropdown select .contact-topic {
+    margin: 0;
+    padding: 20px 0;
+    font-family: -apple-system, "SUSSIE INT'l", sans-serif;
+    text-align: left;
+}
+
+#contact-topic {
+    margin: 0;
+    padding: 20px 0;
+    text-align: left;
+    width: 100%;
+}
+
+.contact-topic-2 {
+    margin: 0;
+    padding: 20px 0;
+    font-family: -apple-system, "SUSSIE INT'l", sans-serif;
+    text-align: left;
+}
+
+#contact-topic-2 {
+    margin: 0;
+    padding: 20px 0;
+    text-align: left;
+    width: 100%;
+}
+
+/* Submit Button Styles */
+.submit-btn {
+    background-color: #000;
+    color: #fff;
+    padding: 8px 15px;
+    margin-top: 40px;
+    border-radius: 0;
+    border: 1px solid #fff;
+    font-size: 12px;
+    font-family: -apple-system, "SUSSIE INT'l", sans-serif;
+    font-weight: 400;
+    text-align: left;
+    font-family: -apple-system, "SUSSIE INT'l", sans-serif;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* SUBMIT Button Hover */
+.submit-btn:hover {
+    background-color: #ffffff;
+    color: hsla(0, 0%, 0%, 1);
+    border: 1px solid #000;
+}
+
+/* Submit Button Arrow (vit till svart) */
+.submit-btn .footer-arrow-img {
+    width: 12px;
+    height: 12px;
+    font-family: -apple-system, "SUSSIE INT'l", sans-serif;
+    background-image: url('pictures/arrowwhite.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: background-image 0.3s ease;
+    margin-left: 4px;
+}
+
+.submit-btn:hover .footer-arrow-img {
+    background-image: url('pictures/arrowblack.webp');
+}
+
+/* Ensure that popups fit within the screen on mobile */
+@media (max-width: 768px) {
+    .popup, .join-us-popup {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        padding-right: 10px;
+        overflow-x: hidden;
+    }
+
+    .popup-content, .join-us-popup .popup-content {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 0px;
+        overflow: auto;
+        top: 0;
+        overflow-x: hidden;
+    }
+
+    .popup-content h3,
+    .popup, .popup-content h3 {
+        font-size: 12px;
+        top: 0;
+    }
+
+    .popup-content h2 {
+        width: 90%;
+    }
+
+    .popup-header {
+        padding-top: 50px;
+    }
+
+    .form-group {
+        width: 90%;
+    }
+
+    .close-btn {
+        font-size: 12px;
+        right: 20px;
+        top: 50px;
+    }
+}
+
+/* Select Field Margin */
+.form-group select {
+    margin-top: 50px;
+}
+
+/* Confirmation Popup Styles */
+#submit-popup .join-us-success-popup .contact-success-popup {
+    background-color: #fff;
+    padding: 40px;
+    text-align: left;
+    position: relative;
+}
+
+#submit-popup h1 {
+    color: #000;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+#submit-popup h2 {
+    color: #B6B6B6;
+    font-size: 12px;
+    margin-bottom: 30px;
+}
+
+/* Submit Button in Confirmation Popup */
+.submit-btn.close-popup {
+    background-color: #000;
+    color: #fff;
+    padding: 8px 15px;
+    font-family: -apple-system, "SUSSIE INT'l", sans-serif;
+    font-size: 12px;
+    border-radius: 0;
+    border: 1px solid #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.submit-btn.close-popup:hover {
+    background-color: #ffffff;
+    color: #000;
+    border: 1px solid #000;
+}
+
+.success-message-box {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.success-message-box.show {
+    display: block;
+}
+
+.success-message-box .close-success {
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+
+/* Style for the button container */
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* Optionellt, för att skapa jämnt mellanrum mellan knapparna */
+.form-actions button {
+    margin: 0 0px;
+}
+
+
+.form-actions .left-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.form-actions .right-group {
+    display: flex;
+    align-items: left;
+    margin-left: auto;
+}
+
+
+/* Text Button Styles */
+.text-btn {
+    background: none;
+    border: none;
+    color: #000;
+    font-family: -apple-system, "SUSSIE INT'l", sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* TEXT Button Hover */
+.text-btn:hover {
+    color: hsla(0, 0%, 50%, 0.7);
+}
+
+/* Text Button Arrow (svart till grå) */
+.text-btn .footer-arrow-img {
+    width: 12px;
+    height: 12px;
+    font-family: -apple-system, "SUSSIE INT'l", sans-serif;
+    background-image: url('pictures/arrowblack.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: background-image 0.3s ease;
+}
+
+.text-btn:hover .footer-arrow-img {
+    background-image: url('pictures/arrowgrey.webp');
+}
+
+/* Cancel Button Styles */
+.cancel-btn {
+    text-align: left;
+    font-family: -apple-system, "SUSSIE INT'l", sans-serif;
+    font-style: normal;
+}
+
+.cancel-btn:hover {
+    text-decoration: underline;
+}
+
+
+
+/* Floating Button */
+.floating-btn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: #000;
+    font-family: -apple-system, "SUSSIE INT'l", sans-serif;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 0;
+    border: 1px solid #fff;
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-align: left;
+    cursor: pointer;
+    z-index: 25;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.floating-btn:hover {
+    background-color: #ffffff;
+    color: #000;
+    border: 1px solid #000;
+}
+
+/* Ny klass för pilen */
+.floating-btn .arrow-img {
+    width: 12px;
+    height: 12px;
+    background-image: url('pictures/arrowwhite.webp');
+    background-size: cover;
+    font-family: -apple-system, "SUSSIE INT'l", sans-serif;
+    background-repeat: no-repeat;
+    transition: background-image 0.3s ease;
+}
+
+.floating-btn:hover .arrow-img {
+    background-image: url('pictures/arrowblack.webp');
+}
+
+
+/* Footer */
+footer {
+    text-align: left;
+    padding: 20px;
+    max-width: 1430px;
+    margin: 0 auto;
+    padding-top: 200px;
+    padding-bottom: 100px;
+    background-color: #fff;
+    color: #000;
+    font-size: 0.8rem;
+    position: relative;
+}
+
+/* Innehållet i footern */
+footer .footer-content {
+    display: flex;
+    align-items: left;
+    justify-content: flex-start;
+    gap: 100px;
+}
+
+/* Listan i footern */
+footer ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 100px;
+    margin: 0;
+    justify-content: flex-start;
+}
+
+/* Länkar i footern */
+footer a {
+    color: #000;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+footer a:hover {
+    color: rgb(172, 172, 172);
+}
+
+/* Footer länkar med pil */
+footer a {
+    color: #000;
+    text-decoration: none;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Ny klass för pilen */
+footer a .footer-arrow-img,
+.secondary-btn .footer-arrow-img {
+    width: 12px;
+    height: 12px;
+    background-image: url('pictures/arrowblack.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: background-image 0.3s ease;
+    font-family: -apple-system, "SUSSIE INT'l", sans-serif;
+}
+
+footer a:hover .footer-arrow-img,
+.secondary-btn:hover .footer-arrow-img {
+    background-image: url('pictures/arrowgrey.webp');
+}
+
+/* Alternativ för vit till svart pil */
+.secondary-btn .footer-arrow-img-white {
+    width: 12px;
+    font-family: -apple-system, "SUSSIE INT'l", sans-serif;
+    height: 12px;
+    background-image: url('pictures/arrowwhite.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: background-image 0.3s ease;
+}
+
+.secondary-btn:hover .footer-arrow-img-white {
+    background-image: url('pictures/arrowblack.webp');
+}
+
+
+/* Footer rubrik */
+footer h3 {
+    color: #808080;
+    font-size: 12px;
+    margin: 0;
+}
+
+.footer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* För att se till att copyrighttexten ligger i botten på sidan på större skärmar */
+.footer-copyright {
+    text-align: center;
+    margin-top: 12px;
+}
+
+/* Responsive Media Queries */
+
+/* Små tablets och mobiler (376px till 768px) */
+@media (max-width: 768px) {
+    .navbar {
+        height: 50px;
+        padding: 0 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0px 4px 6px rgba(88, 88, 88, 0.1);
+    }
+
+    .navbar .logo {
+        position: static;
+        transform: none;
+        order: 1;
+    }
+
+    .navbar .logo img {
+        content: url('pictures/proeventmobile2.webp');
+        width: auto;
+    }
+
+    .navbar .burger-menu {
+        order: 2;
+        z-index: 102;
+    }
+
+    .burger-menu {
+        display: flex;
+    }
+
+    .nav-desktop {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    .mobile-menu .menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    #new-clients {
+        width: 100%;
+        padding: 0 0;
+        padding-left: 20px;
+    }
+
+    .floating-btn {
+        width: 80%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 12px 18px;
+        font-size: 3vw;
+    }
+
+    .divider {
+        font-size: 0,8rem;
+        padding-bottom: 50px;
+        max-width: 715px;
+        width: 90%;
+    }
+
+    .divider h3 {
+        font-size: 12px;
+        padding-bottom: 10px;
+        width: 90%;
+        font-weight: 400;
+    }
+
+    footer {
+        padding-top: 100px;
+        padding-bottom: 200px;
+    }
+
+    footer .footer-content {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    footer ul {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    footer a {
+        font-size: 12px;
+    }
+
+    .footer-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-copyright {
+        margin-top: 30px;
+    }
+
+    #events {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 80px;
+    }
+
+    /* Event Cards Container */
+    .event-card {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: none;
+        box-sizing: border-box;
+    }
+
+    /* Active Event Card */
+    .event-card.active {
+        display: block;
+    }
+
+    /* Gör så att text och pilar visas under bilden på mobil */
+    .event-card.black-bg {
+        background-color: #000;
+        color: #fff;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        min-height: 150px;
+    }
+
+    /* Rubrik och text justeras för mobil */
+    .event-card.black-bg h4, p {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .event-card.black-bg {
+        background-color: #000;
+        color: #fff;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        min-height: 150px;
+        height: auto;
+        position: relative;
+    }
+
+    .arrows span {
+        font-size: 12px;
+        font-weight: 400;
+        top: 20px;
+        right: 40px; 
+        display: flex;
+        justify-content: space-between;
+        width: 50px;
+        margin-top: 10px;
+    }
+    
+    /* Pilar i svart bakgrund */
+    .arrows {
+        position: absolute; 
+        font-family: -apple-system, "SUSSIE INT'l", sans-serif;
+        top: 20px; 
+        right: 20px; 
+        display: flex;
+        justify-content: space-between;
+        width: 50px;
+        margin-top: 20px;
+    }
+
+    /* Justering för bilder */
+    .event-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover; 
+    }
+
+    #hero3 {
+        flex-direction: column; 
+    }
+
+    .hero3-right {
+        order: -1; 
+        width: 100%; 
+    }
+
+    .hero3-left {
+        order: 0; 
+        width: 100%; 
+        text-align: center; 
+    }
+
+    .hero3-right img.event-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover; 
+    }
+
+    .new-client-list {
+        gap: 40px; 
+    }
+
+    .new-client-list img {
+        max-width: 95px; 
+    }
+
+    .quote {
+        width: 90%;
+        padding-left: 20px;
+        margin-top: -30%;
+    }
+
+    .quote-container {
+        height: 10px;
+        padding: 0;
+    }
+
+    .form-section {
+        width: 100%;
+        gap: 0px;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+
+    .cancel-btn {
+        text-align: left;
+    }
+
+    .form-actions {
+        width: 90%; 
+        gap: 0px;
+    }
+
+    #team {
+        padding-top: 0;
+    }
+
+    .select-label {
+        margin-top: 10px;
+        font-size: 12px;
+        color: #6c757d;
+    }
+}
+
+
+/* Tablets och mindre laptops (769px till 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .navbar {
+        height: 50px;
+        padding: 10px 20px;
+    }
+
+    nav ul {
+        justify-content: space-around;
+    }
+
+    .navbar .logo img {
+        width: auto;
+    }
+
+    .burger-menu {
+        display: none;
+    }
+}
+
+/* Laptops (1025px till 1366px) */
+@media (min-width: 1025px) and (max-width: 1366px) {
+    .feature-card {
+        margin: 10px;
+        width: 40%;
+    }
+
+    .navbar .logo img {
+        width: auto;
+    }
+
+    .burger-menu {
+        display: none;
+    }
+
+    .hero-logo {
+        max-width: 200px;
+    }
+}
+
+/* Stora desktops (1367px till 1920px) */
+@media (min-width: 1367px) and (max-width: 1920px) {
+    .feature-card {
+        width: 30%;
+    }
+
+    .navbar .logo img {
+        width: auto;
+    }
+
+    .burger-menu {
+        display: none;
+    }
+}
+
+/* Extra stora desktops (1921px och större) */
+@media (min-width: 1921px) {
+    .feature-card {
+        width: 25%;
+    }
+
+    .navbar .logo img {
+        width: auto;
+    }
+
+    .burger-menu {
+        display: none;
+    }
+
+    .hero-logo {
+        max-width: 200px;
+    }
+}

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ProEvent ">
+    <meta property="og:title" content="ProEvent  - High-End Staffing & Event Production in New York">
+    <meta property="og:description" content="ProEvent  provides professional staffing and production services for events in New York. Our expertise ensures every event is executed to perfection.">
+    <meta property="og:url" content="https://www.proevnt.com">
+    <meta name="twitter:title" content="ProEvent  - High-End Staffing & Event Production in New York">
+    <meta name="twitter:description" content="ProEvent  offers expert staffing services for events across New York, from weddings to corporate functions. Contact us to make your event a success.">
+    <meta property="og:image" content="https://www.proevnt.com/pictures/logo.webp">
+    <meta name="twitter:image" content="https://www.proevnt.com/pictures/logo.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="robots" content="index, follow">
+    <title>ProEvent</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="seo-data" href="seo.json">
+</head>
+
+<body class="previous-clients-page">
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="pictures/logo2.webp" alt="Pro Event Staffing Logo">
+                </a>
+            </div>
+            <ul class="nav-desktop">
+                <div class="nav-left">
+                    <li><a href="whoweare.html">WHO WE ARE</a></li>
+                    <li><a href="previousclients.html">PREVIOUS CLIENTS</a></li>
+                </div>
+                <div class="nav-right">
+                    <li><a href="javascript:void(0)" id="join-us-link">JOIN US</a></li>
+                    <li><a href="javascript:void(0)" id="contact-link">CONTACT</a></li>
+                </div>
+            </ul>
+            <!-- Mobile burger menu (visible only on mobile) -->
+            <div class="burger-menu" id="burger-menu">
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+            </div>
+            <!-- Mobile menu (hidden by default) -->
+            <div class="mobile-menu" id="mobile-menu">
+                <div class="menu-header">
+                    <!-- Länkad logotyp i burgermenyn -->
+                    <a href="index.html">
+                        <img src="pictures/proeventmobile2.webp" alt="Logo" class="mobile-logo">
+                    </a>
+                </div>
+                <ul>
+                    <li><a href="whoweare.html">WHO WE ARE</a></li>
+                    <li><a href="previousclients.html">PREVIOUS CLIENTS</a></li>
+                    <li><a href="#" id="join-us-link">JOIN US</a></li>
+                    <li><a href="#" id="contact-link">CONTACT</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- Hero Section -->
+        <section id="hero3">
+            <div class="hero3-left">
+                <div class="quote-container">
+                    <div id="quote-text" class="quote"></div>
+                </div>
+            </div>
+            <div class="hero3-right">
+                <img src="pictures/event4.webp" alt="Event Image" class="event-image">
+            </div>
+        </section>
+        
+        <!-- Clients Section -->
+        <section id="new-clients">
+            <div class="new-client-list">
+                <img src="pictures/aston.webp" alt="Aston Martin">
+                <img src="pictures/audi.webp" alt="Audi">
+                <img src="pictures/frick.webp" alt="The Frick Collection">
+                <img src="pictures/hudson.webp" alt="Hudson Yards">
+                <img src="pictures/nespresso.webp" alt="Nespresso">
+                <img src="pictures/nobu.webp" alt="Nobu">
+                <img src="pictures/whitney.webp" alt="Whitney Museum">
+                <img src="pictures/samsung.webp" alt="Samsung">
+                <img src="pictures/venroy.webp" alt="Venroy">
+                <img src="pictures/alexander.webp" alt="Alexander Wang">
+                <img src="pictures/HM.webp" alt="Hennes & Mauritz">
+                <img src="pictures/staud.webp" alt="Staud">
+                <img src="pictures/sniffies.webp" alt="Sniffies">
+                <img src="pictures/marcia.webp" alt="Marcia Selden">
+                <img src="pictures/Balenciaga.webp" alt="Balenciaga">
+                <img src="pictures/lamborghini.webp" alt="Lamborghini">
+                <img src="pictures/acquolina.webp" alt="Acquolina">
+                <img src="pictures/wedding.webp" alt="The Wedding Collab">
+                <img src="pictures/nyfw.webp" alt="New York Fashion Week">
+                <img src="pictures/tom.webp" alt="Tom Ford">
+                <img src="pictures/met.webp" alt="The Met">
+            </div>            
+        </section>
+
+<!-- Contact Form Section -->
+<div class="form-container">
+    <div class="form-content-box">
+        <h1>INQUIRE ABOUT AN EVENT, COLLABORATION, OR SIMPLY SAY HELLO.</h1>
+        <section class="form-section">
+            <form id="contact-form" action="form-handler.php" method="POST">
+                <input type="hidden" name="formType" value="contact-form"> 
+                
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder=" " required />
+                    <label for="name">Name</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder=" " required />
+                    <label for="email">Email</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" id="company" name="company" placeholder=" " />
+                    <label for="company">Company Name</label>
+                </div>
+
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder=" " required></textarea>
+                    <label for="message">Message</label>
+                </div>
+
+                <div class="form-group">
+                    <select id="contact-topic" name="topic" required>
+                        <option value="" disabled selected>Select a topic</option>
+                        <option value="collaboration">Collaboration Opportunities</option>
+                        <option value="event">Event Planning or Hosting</option>
+                        <option value="feedback">Feedback or Suggestions</option>
+                        <option value="support">Technical Support</option>
+                        <option value="production">Production Services</option>
+                        <option value="agency">Agency or Talent Services</option>
+                        <option value="partnerships">Partnerships</option>
+                        <option value="roles">Event Roles or Opportunities</option>
+                        <option value="general">General Inquiry</option>
+                    </select>
+                    <label for="contact-topic">How can we help?</label>
+                </div>
+
+                <button type="submit" class="submit-btn">SUBMIT</button>
+            </form>
+        </section>
+    </div>
+</div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <ul>
+                <li><a href="previousclients.html">REVIEWS <span class="footer-arrow-img"></span></a></li>
+                <li><a href="javascript:void(0)" id="join-us-footer-link">JOIN US <span class="footer-arrow-img"></span></a></li>
+                <li><a href="javascript:void(0)" id="contact-footer-link">CONTACT US <span class="footer-arrow-img"></span></a></li>
+                <li><a href="https://www.instagram.com/proeventstaffingnyc" target="_blank" rel="noopener noreferrer">INSTAGRAM <span class="footer-arrow-img"></span></a></li>
+                <li><a href="https://www.linkedin.com/company/pro-event-staffing-inc/" target="_blank" rel="noopener noreferrer">LINKEDIN <span class="footer-arrow-img"></span></a></li>
+            </ul>
+            <h3>&copy; PROEVENT LLC</h3>
+        </div>
+    </footer>
+    
+
+
+    <button class="floating-btn">
+        HAVE AN EVENT IN MIND? GET IN TOUCH
+        <div class="arrow-img"></div>
+    </button>
+
+    
+<!-- Contact Form Popup -->
+<div class="overlay"></div>
+<div id="contact-popup" class="popup contact-popup">
+    <div class="popup-content">
+        <div class="popup-header">
+            <h1>Contact Us</h1>
+            <button class="close-btn" aria-label="Close">
+                <span class="close-line"></span>
+                <span class="close-line"></span>
+            </button>
+        </div>
+        <h2>We’d love to hear from you. Let us know how we can assist, and we’ll respond as soon as possible.</h2>
+        <form id="contact-us-form" action="form-handler.php" method="POST">
+            <input type="hidden" name="formType" value="contact-us">   
+            
+            <div class="form-group">
+                <input type="text" id="contact-name" name="name" placeholder=" " required />
+                <label for="contact-name">Full Name</label>
+            </div>
+
+            <div class="form-group">
+                <input type="email" id="contact-email" name="email" placeholder=" " required />
+                <label for="contact-email">Email Address</label>
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="contact-company" name="company" placeholder=" " />
+                <label for="contact-company">Company Name / Organization</label>
+            </div>
+
+            <div class="form-group">
+                <textarea id="contact-message" name="message" placeholder=" " required ></textarea>
+                <label for="contact-message">Let us know your inquiry or request.</label>
+            </div>
+
+            <div class="form-group">
+                <select id="contact-topic-2" name="topic" required>
+                    <option value="" disabled selected>Select a topic</option>
+                    <option value="collaboration">Collaboration Opportunities</option>
+                    <option value="event">Event Planning or Hosting</option>
+                    <option value="feedback">Feedback or Suggestions</option>
+                    <option value="support">Technical Support</option>
+                    <option value="production">Production Services</option>
+                    <option value="agency">Agency or Talent Services</option>
+                    <option value="partnerships">Partnerships</option>
+                    <option value="roles">Event Roles or Opportunities</option>
+                    <option value="general">General Inquiry</option>
+                </select>
+                <label for="contact-topic-2">How can we help?</label>
+            </div>
+
+            <button type="submit" class="submit-btn">SUBMIT</button>
+        </form>
+    </div>
+</div>
+
+<div class="overlay"></div>
+
+<!-- Join Us Form Popup -->
+<div id="join-us-popup" class="popup join-us-popup">
+    <div class="popup-content">
+        <div class="popup-header">
+            <h1>JOIN THE TEAM</h1>
+            <button class="close-btn" aria-label="Close">
+                <span class="close-line"></span>
+                <span class="close-line"></span>
+            </button>
+        </div>
+        <h2>If you're looking for work within the event industry, you've come to the right place. We would love to have you on our team.</h2>
+        <h2>Fill out the application form and we will get back to you with a time for an interview.</h2>
+        <form id="join-us-form" action="form-handler.php" method="POST">
+            <input type="hidden" name="formType" value="join-us">
+            
+            <div class="form-group">
+                <input type="text" id="join-name" name="name" placeholder=" " required />
+                <label for="join-name">Full Name</label>
+            </div>
+
+            <div class="form-group">
+                <input type="email" id="join-email" name="email" placeholder=" " required />
+                <label for="join-email">Email Address</label>
+            </div>
+
+            <div class="form-group">
+                <textarea id="join-message" name="message" placeholder=" " required></textarea>
+                <label for="join-message">Tell us about your interests, experiences or skills that are relevant.</label>
+            </div>
+
+            <div class="form-group">
+                <input type="file" id="join-attachment" name="attachment" multiple />
+                <label for="join-attachment">Attach your résumé, portfolio, or relevant files here.</label>
+            </div>
+
+            <div class="form-actions">
+                <div class="left-group">
+                    <button type="submit" class="submit-btn">SUBMIT</button>
+                </div>
+                <div class="right-group">
+                    <button type="button" class="text-btn cancel-btn">CANCEL</button>
+                </div>
+            </div>
+        </form>        
+    </div>
+</div>
+
+<div class="overlay"></div>
+
+<!-- Submit Success Popup -->
+<div id="submit-popup" class="popup">
+    <div class="popup-content">
+        <div class="popup-header">
+            <h1>Thanks for your submission!</h1>
+            <button class="close-btn" aria-label="Close">
+                <span class="close-line"></span>
+                <span class="close-line"></span>
+            </button>
+        </div>
+        <div class="form-container">
+            <p id="success-message">We’ll get back to you shortly.</p>
+            <button class="submit-btn close-popup">CLOSE</button>
+        </div>
+    </div>
+</div>
+
+<div class="overlay"></div>
+
+<script>
+// Select the elements
+const contactPopup = document.getElementById("contact-popup");
+const contactLink = document.getElementById('contact-link');
+const contactFooterLink = document.getElementById('contact-footer-link');
+const floatingButton = document.querySelector('.floating-btn');
+const popup = document.getElementById('contact-popup');
+const closeButton = document.querySelector('.close-btn');
+const submitPopup = document.getElementById('submit-popup');
+const closeSubmitButton = document.querySelectorAll('.close-btn, .close-popup');
+const form = document.querySelector('form');
+const joinUsLink = document.getElementById('join-us-link');
+const joinUsFooterLink = document.getElementById('join-us-footer-link');
+const joinUsPopup = document.getElementById('join-us-popup');
+const closeJoinUsButton = document.querySelector('.join-us-popup .close-btn');
+const joinUsForm = document.getElementById('join-us-form');
+const contactForm = document.getElementById('contact-form');
+const eventForm = document.getElementById('event-form');
+const openPopup = (popupElement) => popupElement.classList.add('show');
+const closePopup = (popupElement) => popupElement.classList.remove('show');
+
+if (typeof contactUsButtonJoin === "undefined") {
+    let contactUsButtonJoin = document.getElementById("contact-us-btn");
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const joinUsButton = document.getElementById("join-us-btn");
+    if (joinUsButton) {
+        joinUsButton.addEventListener("click", function () {
+            console.log("Join Us button clicked!");
+        });
+    } else {
+        console.warn("⚠️ Warning: join-us-btn not found in the DOM! This might be expected if the button is added dynamically.");
+    }
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Hämta element för burgermenyn och mobilmenyn
+    const burgerMenu = document.getElementById("burger-menu");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileMenuLinks = document.querySelectorAll(".mobile-menu a");
+
+    if (burgerMenu && mobileMenu) {
+        burgerMenu.addEventListener("click", function (event) {
+            event.stopPropagation();
+            mobileMenu.classList.toggle("open");
+            burgerMenu.classList.toggle("open");
+        });
+
+        // Stäng menyn när en meny-länk klickas
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener("click", function () {
+                mobileMenu.classList.remove("open");
+                burgerMenu.classList.remove("open");
+            });
+        });
+
+        // Stäng menyn om användaren klickar utanför den
+        document.addEventListener("click", function (event) {
+            if (!mobileMenu.contains(event.target) && !burgerMenu.contains(event.target)) {
+                mobileMenu.classList.remove("open");
+                burgerMenu.classList.remove("open");
+            }
+        });
+    } else {
+        console.error("❌ Burger menu or mobile menu not found!");
+    }
+});
+
+
+const joinNameInput = document.getElementById("join-name");
+if (joinNameInput) {
+    let joinNameValue = joinNameInput.value;
+} else {
+    console.error("join-name field not found.");
+}
+
+let successShown = false;
+
+document.addEventListener("DOMContentLoaded", function () {
+    const successPopup = document.getElementById("submit-popup");
+    const successMessage = document.getElementById("success-message");
+
+    document.querySelectorAll("form").forEach(form => {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            if (successShown) return;
+
+            const formData = new FormData(this);
+
+            fetch("form-handler.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Server response:", data);
+                if (data.status === "success") {
+                    successMessage.textContent = "Thank you! Your message has been sent successfully.";
+                    openPopup(successPopup);
+                    successShown = true;
+                    setTimeout(() => successShown = false, 5000);
+                    this.reset();
+                } else {
+                    alert("Error: " + data.message);
+                }
+            })
+            .catch(error => {
+                console.error("Fetch Error:", error);
+                alert("An unexpected error occurred.");
+            });
+        });
+    });
+});
+
+
+document.getElementById('join-us-link').addEventListener('click', function(e) {
+    e.preventDefault();
+});
+
+document.getElementById('contact-link').addEventListener('click', function(e) {
+    e.preventDefault();
+});
+
+
+// Event listeners for showing contact form popup
+const openContactPopup = () => openPopup(popup);
+if (contactLink) contactLink.addEventListener('click', openContactPopup);
+if (contactFooterLink) contactFooterLink.addEventListener('click', openContactPopup);
+if (floatingButton) floatingButton.addEventListener('click', openContactPopup);
+const contactLinkMobile = document.querySelector('#mobile-menu #contact-link');
+if (contactLinkMobile) contactLinkMobile.addEventListener('click', openContactPopup);
+
+// Event listeners for showing 'Join Us' popup
+const openJoinUsPopup = () => openPopup(joinUsPopup);
+if (joinUsLink) joinUsLink.addEventListener('click', openJoinUsPopup);
+if (joinUsFooterLink) joinUsFooterLink.addEventListener('click', openJoinUsPopup);
+const joinUsLinkMobile = document.querySelector('#mobile-menu #join-us-link');
+if (joinUsLinkMobile) joinUsLinkMobile.addEventListener('click', openJoinUsPopup);
+
+// Close popup functions
+if (closeButton) closeButton.addEventListener('click', () => closePopup(popup));
+
+// Close success popup
+if (closeSubmitButton) {
+    closeSubmitButton.forEach(button => {
+        button.addEventListener('click', () => closePopup(submitPopup));
+    });
+}
+
+// Event listener for clicking inside the modal should not trigger close
+popup.addEventListener('click', (e) => e.stopPropagation());
+joinUsPopup.addEventListener('click', (e) => e.stopPropagation());
+
+if (closeJoinUsButton) closeJoinUsButton.addEventListener('click', () => closePopup(joinUsPopup));
+
+// Close popup when clicking outside the popup content
+document.addEventListener('click', (e) => {
+    if (popup && !popup.contains(e.target) && ![contactLink, contactFooterLink, floatingButton, contactLinkMobile].includes(e.target)) {
+        closePopup(popup);
+    }
+    if (joinUsPopup && !joinUsPopup.contains(e.target) && ![joinUsLink, joinUsFooterLink, joinUsLinkMobile].includes(e.target)) {
+        closePopup(joinUsPopup);
+    }
+    if (submitPopup && !submitPopup.contains(e.target) && ![...closeSubmitButton].includes(e.target)) {
+        closePopup(submitPopup);
+    }
+});
+
+// Handle form submission for 'Contact Us'
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        closePopup(popup); // Close the contact popup
+        openPopup(submitPopup); // Open the success message popup
+    });
+}
+
+// Handle form submission for 'Join Us'
+if (joinUsForm) {
+    joinUsForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        closePopup(joinUsPopup);
+        openPopup(submitPopup);
+    });
+}
+
+// Handle form submission for 'Event Form'
+if (eventForm) {
+    eventForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        openPopup(submitPopup);
+    });
+}
+
+// General form validation for all forms
+document.querySelectorAll('form').forEach((form) => {
+    form.addEventListener('submit', (e) => {
+        const name = form.querySelector('[name="name"]').value.trim();
+        const email = form.querySelector('[name="email"]').value.trim();
+        const message = form.querySelector('[name="message"]').value.trim();
+
+        if (!name || !email || !message) {
+            e.preventDefault();
+            alert('Vänligen fyll i alla obligatoriska fält.');
+        }
+    });
+});
+
+// Open Join Us popup and close Contact Us popup
+document.querySelector('.join-us-btn').addEventListener('click', () => {
+    closePopup(document.getElementById('contact-popup'));
+    openPopup(document.getElementById('join-us-popup'));
+});
+
+// Open Contact Us popup and close Join Us popup
+document.querySelector('.contact-us-btn').addEventListener('click', () => {
+    closePopup(document.getElementById('join-us-popup'));
+    openPopup(document.getElementById('contact-popup'));
+});
+
+// Close both popups when clicking Cancel
+document.querySelectorAll('.cancel-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+        closePopup(document.getElementById('contact-popup'));
+        closePopup(document.getElementById('join-us-popup'));
+    });
+});
+
+
+
+// Close mobile menu when clicking outside the mobile menu content
+document.addEventListener('click', function(e) {
+    if (mobileMenu && !mobileMenu.contains(e.target) && e.target !== burgerMenu) {
+        mobileMenu.classList.remove('open');
+        burgerMenu.classList.remove('open');
+    }
+});
+
+// Close mobile menu when clicking on any menu link
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', function() {
+        mobileMenu.classList.remove('open');
+        burgerMenu.classList.remove('open');
+    });
+});
+
+// Add an event listener for all desktop menu links
+document.querySelectorAll('.desktop-menu a').forEach(link => {
+    link.addEventListener('click', function() {
+        mobileMenu.classList.remove('open');
+        burgerMenu.classList.remove('open');
+    });
+});
+</script>
+
+<script>
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    
+        // Show logo and apply navbar styles when scrolled past threshold
+        if (currentScroll > scrollThreshold) {
+            navbar.classList.add('scrolled');
+            document.querySelectorAll('.burger-line').forEach(line => {
+                line.classList.add('dark');
+            });
+            document.querySelectorAll('.nav-desktop a').forEach(link => {
+                link.classList.add('dark');
+            });
+        } else {
+            navbar.classList.remove('scrolled');
+            document.querySelectorAll('.burger-line').forEach(line => {
+                line.classList.remove('dark');
+            });
+            document.querySelectorAll('.nav-desktop a').forEach(link => {
+                link.classList.remove('dark');
+            });
+        }
+    });
+
+    const quotes = [
+    { text: "We sometimes have complicated events with complicated clients, but ProEvent  simplifies things.", author: "Jack, Lawrence Craig" },
+    { text: "Most supportive team I’ve worked with!", author: "Tom, The Met museum" }
+];
+
+let currentQuoteIndex = 0;
+
+function changeQuote() {
+    const quoteTextElement = document.getElementById("quote-text");
+    if (quoteTextElement) {
+        const currentQuote = quotes[currentQuoteIndex];
+        
+        // Update the quote text and author
+        quoteTextElement.innerHTML = `<span class="quote-text">“${currentQuote.text}”</span><span class="author">– ${currentQuote.author}</span>`;
+
+        // Add active class to trigger fade-in animation
+        quoteTextElement.classList.add('active');
+
+        // Set the index for the next quote
+        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+
+        // Remove active class after animation duration (1s)
+        setTimeout(() => {
+            quoteTextElement.classList.remove('active');
+        }, 4000);
+    }
+}
+
+// Start the quote carousel
+setInterval(changeQuote, 5000);
+changeQuote();
+    </script>
+    <script>
+    // Scroll animation for Navbar Logo
+    const navbar = document.querySelector('.navbar');
+    const logo = document.querySelector('.navbar .logo');
+    const scrollThreshold = 300;
+    
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Show logo when scrolled past threshold
+        if (currentScroll > scrollThreshold) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    
+    // Fallback for backdrop filter support
+    if (!CSS.supports("backdrop-filter", "blur(5px)")) {
+        const navbarBackground = document.querySelector('.navbar-background');
+        navbarBackground.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
+    }
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        const currentPath = window.location.pathname;
+        if (currentPath.includes("previousclients.html")) {
+            document.body.classList.add("previous-clients-page");
+        }
+    });
+    </script>
+
+<style>/* Specifika stilar för sidan previousclients.html */
+    .previous-clients-page .nav-left a,
+    .previous-clients-page .nav-right a {
+        color: #000 !important;
+    }
+    
+    /* Lägg till hover-effekt som gör länkarna grå */
+    .previous-clients-page .nav-left a:hover,
+    .previous-clients-page .nav-right a:hover {
+        color: rgba(128, 128, 128, 0.5) !important;
+    }</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let seoLink = document.querySelector("link[rel='seo-data']");
+        if (seoLink) {
+            fetch(seoLink.getAttribute("href"))
+                .then(response => response.json())
+                .then(data => {
+                    document.title = data.title;
+
+                    function addMeta(name, content) {
+                        let meta = document.createElement("meta");
+                        meta.name = name;
+                        meta.content = content;
+                        document.head.appendChild(meta);
+                    }
+
+                    addMeta("description", data.description);
+                    addMeta("keywords", data.keywords);
+                    addMeta("author", data.author);
+
+                    // Open Graph Metadata
+                    function addOGMeta(property, content) {
+                        let meta = document.createElement("meta");
+                        meta.setAttribute("property", property);
+                        meta.content = content;
+                        document.head.appendChild(meta);
+                    }
+
+                    addOGMeta("og:title", data["og:title"]);
+                    addOGMeta("og:description", data["og:description"]);
+                    addOGMeta("og:url", data["og:url"]);
+                    addOGMeta("og:image", data["og:image"]);
+
+                    // Twitter Metadata
+                    addMeta("twitter:title", data["twitter:title"]);
+                    addMeta("twitter:description", data["twitter:description"]);
+                    addMeta("twitter:image", data["twitter:image"]);
+                    addMeta("twitter:card", data["twitter:card"]);
+
+                    // Robots
+                    addMeta("robots", data.robots);
+                })
+                .catch(error => console.error("SEO JSON Load Error:", error));
+        }
+    });
+</script>
+
+
+    <script src="scripts.js"></script>
+
+</body>
+</html>
