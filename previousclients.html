@@ -259,7 +259,7 @@
             </div>
 
             <div class="form-group">
-                <input type="file" id="join-attachment" name="attachment" multiple />
+                <input type="file" id="join-attachment" name="attachments[]" multiple />
                 <label for="join-attachment">Attach your résumé, portfolio, or relevant files here.</label>
             </div>
 
@@ -372,17 +372,16 @@ if (joinNameInput) {
 let successShown = false;
 
 document.addEventListener("DOMContentLoaded", function () {
-    const successPopup = document.getElementById("submit-popup");
-    const successMessage = document.getElementById("success-message");
-
     document.querySelectorAll("form").forEach(form => {
         form.addEventListener("submit", function (e) {
-            e.preventDefault();
-            if (successShown) return;
+            e.preventDefault(); // Förhindra standardbeteendet
 
             const formData = new FormData(this);
 
-            fetch("form-handler.php", {
+            // Visa en snabb loading-indikator
+            showSuccessPopup("Sending... Please wait.");
+
+            fetch(this.action, {
                 method: "POST",
                 body: formData
             })
@@ -390,10 +389,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(data => {
                 console.log("Server response:", data);
                 if (data.status === "success") {
-                    successMessage.textContent = "Thank you! Your message has been sent successfully.";
-                    openPopup(successPopup);
-                    successShown = true;
-                    setTimeout(() => successShown = false, 5000);
+                    showSuccessPopup("Sending... Please wait while processing your message it might take a minute.");
                     this.reset();
                 } else {
                     alert("Error: " + data.message);
@@ -405,6 +401,18 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     });
+
+    function showSuccessPopup(message) {
+        const successPopup = document.getElementById("submit-popup");
+        const successMessage = document.getElementById("success-message");
+        successMessage.textContent = message;
+        successPopup.classList.add("show");
+
+        // Stäng popup efter 5 sekunder automatiskt
+        setTimeout(() => {
+            successPopup.classList.remove("show");
+        }, 5000);
+    }
 });
 
 
