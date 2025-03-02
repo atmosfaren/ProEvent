@@ -211,15 +211,15 @@
                 <div class="form-group">
                     <select id="contact-topic" name="topic" required>
                         <option value="" disabled selected>Select a topic</option>
-                        <option value="collaboration">Collaboration Opportunities</option>
-                        <option value="event">Event Planning or Hosting</option>
-                        <option value="feedback">Feedback or Suggestions</option>
-                        <option value="support">Technical Support</option>
-                        <option value="production">Production Services</option>
-                        <option value="agency">Agency or Talent Services</option>
+                        <option value="collaboration opportunities">Collaboration Opportunities</option>
+                        <option value="event planning or hosting">Event Planning or Hosting</option>
+                        <option value="feedback or suggestions">Feedback or Suggestions</option>
+                        <option value="technical support">Technical Support</option>
+                        <option value="production services">Production Services</option>
+                        <option value="agency or talent services">Agency or Talent Services</option>
                         <option value="partnerships">Partnerships</option>
-                        <option value="roles">Event Roles or Opportunities</option>
-                        <option value="general">General Inquiry</option>
+                        <option value="event roles or opportunities">Event Roles or Opportunities</option>
+                        <option value="general inquiry">General Inquiry</option>
                     </select>
                     <label for="contact-topic">How can we help?</label>
                 </div>
@@ -288,15 +288,15 @@
             <div class="form-group">
                 <select id="contact-topic-2" name="topic" required>
                     <option value="" disabled selected>Select a topic</option>
-                    <option value="collaboration">Collaboration Opportunities</option>
-                    <option value="event">Event Planning or Hosting</option>
-                    <option value="feedback">Feedback or Suggestions</option>
-                    <option value="support">Technical Support</option>
-                    <option value="production">Production Services</option>
-                    <option value="agency">Agency or Talent Services</option>
-                    <option value="partnerships">Partnerships</option>
-                    <option value="roles">Event Roles or Opportunities</option>
-                    <option value="general">General Inquiry</option>
+                        <option value="collaboration opportunities">Collaboration Opportunities</option>
+                        <option value="event planning or hosting">Event Planning or Hosting</option>
+                        <option value="feedback or suggestions">Feedback or Suggestions</option>
+                        <option value="technical support">Technical Support</option>
+                        <option value="production services">Production Services</option>
+                        <option value="agency or talent services">Agency or Talent Services</option>
+                        <option value="partnerships">Partnerships</option>
+                        <option value="event roles or opportunities">Event Roles or Opportunities</option>
+                        <option value="general inquiry">General Inquiry</option>
                 </select>
                 <label for="contact-topic-2">How can we help?</label>
             </div>
@@ -377,262 +377,250 @@
 <div class="overlay"></div>
 
 <script>
-// Select the elements
-const contactPopup = document.getElementById("contact-popup");
-const contactLink = document.getElementById('contact-link');
-const contactFooterLink = document.getElementById('contact-footer-link');
-const floatingButton = document.querySelector('.floating-btn');
-const popup = document.getElementById('contact-popup');
-const closeButton = document.querySelector('.close-btn');
-const submitPopup = document.getElementById('submit-popup');
-const closeSubmitButton = document.querySelectorAll('.close-btn, .close-popup');
-const form = document.querySelector('form');
-const joinUsLink = document.getElementById('join-us-link');
-const joinUsFooterLink = document.getElementById('join-us-footer-link');
-const joinUsPopup = document.getElementById('join-us-popup');
-const closeJoinUsButton = document.querySelector('.join-us-popup .close-btn');
-const joinUsForm = document.getElementById('join-us-form');
-const contactForm = document.getElementById('contact-form');
-const eventForm = document.getElementById('event-form');
-const openPopup = (popupElement) => popupElement.classList.add('show');
-const closePopup = (popupElement) => popupElement.classList.remove('show');
-
-if (typeof contactUsButtonJoin === "undefined") {
-    let contactUsButtonJoin = document.getElementById("contact-us-btn");
-}
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const joinUsButton = document.getElementById("join-us-btn");
-    if (joinUsButton) {
-        joinUsButton.addEventListener("click", function () {
-            console.log("Join Us button clicked!");
-        });
-    } else {
-        console.warn("⚠️ Warning: join-us-btn not found in the DOM! This might be expected if the button is added dynamically.");
+    // Select the elements
+    const contactPopup = document.getElementById("contact-popup");
+    const contactLink = document.getElementById('contact-link');
+    const contactFooterLink = document.getElementById('contact-footer-link');
+    const floatingButton = document.querySelector('.floating-btn');
+    const popup = document.getElementById('contact-popup');
+    const closeButton = document.querySelector('.close-btn');
+    const submitPopup = document.getElementById('submit-popup');
+    const closeSubmitButton = document.querySelectorAll('.close-btn, .close-popup');
+    const form = document.querySelector('form');
+    const joinUsLink = document.getElementById('join-us-link');
+    const joinUsFooterLink = document.getElementById('join-us-footer-link');
+    const joinUsPopup = document.getElementById('join-us-popup');
+    const closeJoinUsButton = document.querySelector('.join-us-popup .close-btn');
+    const joinUsForm = document.getElementById('join-us-form');
+    const contactForm = document.getElementById('contact-form');
+    const eventForm = document.getElementById('event-form');
+    const openPopup = (popupElement) => popupElement.classList.add('show');
+    const closePopup = (popupElement) => popupElement.classList.remove('show');
+    
+    if (typeof contactUsButtonJoin === "undefined") {
+        let contactUsButtonJoin = document.getElementById("contact-us-btn");
     }
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Hämta element för burgermenyn och mobilmenyn
-    const burgerMenu = document.getElementById("burger-menu");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const mobileMenuLinks = document.querySelectorAll(".mobile-menu a");
-
-    if (burgerMenu && mobileMenu) {
-        burgerMenu.addEventListener("click", function (event) {
-            event.stopPropagation();
-            mobileMenu.classList.toggle("open");
-            burgerMenu.classList.toggle("open");
-        });
-
-        // Stäng menyn när en meny-länk klickas
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener("click", function () {
-                mobileMenu.classList.remove("open");
-                burgerMenu.classList.remove("open");
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        // Hämta element för burgermenyn och mobilmenyn
+        const burgerMenu = document.getElementById("burger-menu");
+        const mobileMenu = document.getElementById("mobile-menu");
+    
+        // Kontrollera om mobileMenu finns i DOM:en innan koden körs
+        if (!mobileMenu) {
+            console.error("❌ mobileMenu not found in the DOM! Check if the element exists.");
+            return; // Avsluta funktionen om elementet saknas
+        }
+    
+        const mobileMenuLinks = document.querySelectorAll(".mobile-menu a");
+    
+        if (burgerMenu) {
+            burgerMenu.addEventListener("click", function (event) {
+                event.stopPropagation();
+                mobileMenu.classList.toggle("open");
+                burgerMenu.classList.toggle("open");
             });
-        });
-
-        // Stäng menyn om användaren klickar utanför den
-        document.addEventListener("click", function (event) {
-            if (!mobileMenu.contains(event.target) && !burgerMenu.contains(event.target)) {
-                mobileMenu.classList.remove("open");
-                burgerMenu.classList.remove("open");
-            }
-        });
-    } else {
-        console.error("❌ Burger menu or mobile menu not found!");
-    }
-});
-
-
-const joinNameInput = document.getElementById("join-name");
-if (joinNameInput) {
-    let joinNameValue = joinNameInput.value;
-} else {
-    console.error("join-name field not found.");
-}
-
-let successShown = false;
-
-document.addEventListener("DOMContentLoaded", function () {
-    const successPopup = document.getElementById("submit-popup");
-    const successMessage = document.getElementById("success-message");
-
-    document.querySelectorAll("form").forEach(form => {
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-            if (successShown) return;
-
-            const formData = new FormData(this);
-
-            fetch("form-handler.php", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log("Server response:", data);
-                if (data.status === "success") {
-                    successMessage.textContent = "Thank you! Your message has been sent successfully.";
-                    openPopup(successPopup);
-                    successShown = true;
-                    setTimeout(() => successShown = false, 5000);
-                    this.reset();
-                } else {
-                    alert("Error: " + data.message);
+    
+            // Stäng menyn när en meny-länk klickas
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener("click", function () {
+                    mobileMenu.classList.remove("open");
+                    burgerMenu.classList.remove("open");
+                });
+            });
+    
+            // Stäng menyn om användaren klickar utanför den
+            document.addEventListener("click", function (event) {
+                if (!mobileMenu.contains(event.target) && !burgerMenu.contains(event.target)) {
+                    mobileMenu.classList.remove("open");
+                    burgerMenu.classList.remove("open");
                 }
-            })
-            .catch(error => {
-                console.error("Fetch Error:", error);
-                alert("An unexpected error occurred.");
             });
-        });
-    });
-});
-
-
-
-document.getElementById('join-us-link').addEventListener('click', function(e) {
-    e.preventDefault();
-});
-
-document.getElementById('contact-link').addEventListener('click', function(e) {
-    e.preventDefault();
-});
-
-
-// Event listeners for showing contact form popup
-const openContactPopup = () => openPopup(popup);
-if (contactLink) contactLink.addEventListener('click', openContactPopup);
-if (contactFooterLink) contactFooterLink.addEventListener('click', openContactPopup);
-if (floatingButton) floatingButton.addEventListener('click', openContactPopup);
-const contactLinkMobile = document.querySelector('#mobile-menu #contact-link');
-if (contactLinkMobile) contactLinkMobile.addEventListener('click', openContactPopup);
-
-// Event listeners for showing 'Join Us' popup
-const openJoinUsPopup = () => openPopup(joinUsPopup);
-if (joinUsLink) joinUsLink.addEventListener('click', openJoinUsPopup);
-if (joinUsFooterLink) joinUsFooterLink.addEventListener('click', openJoinUsPopup);
-const joinUsLinkMobile = document.querySelector('#mobile-menu #join-us-link');
-if (joinUsLinkMobile) joinUsLinkMobile.addEventListener('click', openJoinUsPopup);
-
-// Close popup functions
-if (closeButton) closeButton.addEventListener('click', () => closePopup(popup));
-
-// Close success popup
-if (closeSubmitButton) {
-    closeSubmitButton.forEach(button => {
-        button.addEventListener('click', () => closePopup(submitPopup));
-    });
-}
-
-// Event listener for clicking inside the modal should not trigger close
-popup.addEventListener('click', (e) => e.stopPropagation());
-joinUsPopup.addEventListener('click', (e) => e.stopPropagation());
-
-if (closeJoinUsButton) closeJoinUsButton.addEventListener('click', () => closePopup(joinUsPopup));
-
-// Close popup when clicking outside the popup content
-document.addEventListener('click', (e) => {
-    if (popup && !popup.contains(e.target) && ![contactLink, contactFooterLink, floatingButton, contactLinkMobile].includes(e.target)) {
-        closePopup(popup);
-    }
-    if (joinUsPopup && !joinUsPopup.contains(e.target) && ![joinUsLink, joinUsFooterLink, joinUsLinkMobile].includes(e.target)) {
-        closePopup(joinUsPopup);
-    }
-    if (submitPopup && !submitPopup.contains(e.target) && ![...closeSubmitButton].includes(e.target)) {
-        closePopup(submitPopup);
-    }
-});
-
-// Handle form submission for 'Contact Us'
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        closePopup(popup);
-        openPopup(submitPopup);
-    });
-}
-
-// Handle form submission for 'Join Us'
-if (joinUsForm) {
-    joinUsForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        closePopup(joinUsPopup);
-        openPopup(submitPopup);
-    });
-}
-
-// Handle form submission for 'Event Form'
-if (eventForm) {
-    eventForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        openPopup(submitPopup);
-    });
-}
-
-// General form validation for all forms
-document.querySelectorAll('form').forEach((form) => {
-    form.addEventListener('submit', (e) => {
-        const name = form.querySelector('[name="name"]').value.trim();
-        const email = form.querySelector('[name="email"]').value.trim();
-        const message = form.querySelector('[name="message"]').value.trim();
-
-        if (!name || !email || !message) {
-            e.preventDefault();
-            alert('Vänligen fyll i alla obligatoriska fält.');
+        } else {
+            console.error("❌ Burger menu not found in the DOM!");
         }
     });
-});
-
-// Open Join Us popup and close Contact Us popup
-document.querySelector('.join-us-btn').addEventListener('click', () => {
-    closePopup(document.getElementById('contact-popup'));
-    openPopup(document.getElementById('join-us-popup'));
-});
-
-// Open Contact Us popup and close Join Us popup
-document.querySelector('.contact-us-btn').addEventListener('click', () => {
-    closePopup(document.getElementById('join-us-popup'));
-    openPopup(document.getElementById('contact-popup'));
-});
-
-// Close both popups when clicking Cancel
-document.querySelectorAll('.cancel-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-        closePopup(document.getElementById('contact-popup'));
-        closePopup(document.getElementById('join-us-popup'));
-    });
-});
-
-// Close mobile menu when clicking outside the mobile menu content
-document.addEventListener('click', function(e) {
-    if (mobileMenu && !mobileMenu.contains(e.target) && e.target !== burgerMenu) {
-        mobileMenu.classList.remove('open');
-        burgerMenu.classList.remove('open');
+    
+    
+    const joinNameInput = document.getElementById("join-name");
+    if (joinNameInput) {
+        let joinNameValue = joinNameInput.value;
+    } else {
+        console.error("join-name field not found.");
     }
-});
-
-// Close mobile menu when clicking on any menu link
-document.querySelectorAll('.mobile-menu a').forEach(link => {
-    link.addEventListener('click', function() {
-        mobileMenu.classList.remove('open');
-        burgerMenu.classList.remove('open');
+    
+    let successShown = false;
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        const successPopup = document.getElementById("submit-popup");
+        const successMessage = document.getElementById("success-message");
+    
+        document.querySelectorAll("form").forEach(form => {
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                if (successShown) return;
+    
+                const formData = new FormData(this);
+    
+                fetch("form-handler.php", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Server response:", data);
+                    if (data.status === "success") {
+                        successMessage.textContent = "Thank you! Your message has been sent successfully.";
+                        openPopup(successPopup);
+                        successShown = true;
+                        setTimeout(() => successShown = false, 5000);
+                        this.reset();
+                    } else {
+                        alert("Error: " + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error("Fetch Error:", error);
+                    alert("An unexpected error occurred.");
+                });
+            });
+        });
     });
-});
-
-// Add an event listener for all desktop menu links
-document.querySelectorAll('.desktop-menu a').forEach(link => {
-    link.addEventListener('click', function() {
-        // Close the mobile menu when a link is clicked on desktop
-        mobileMenu.classList.remove('open');
-        burgerMenu.classList.remove('open');
+    
+    
+    document.getElementById('join-us-link').addEventListener('click', function(e) {
+        e.preventDefault();
     });
-});
-</script>
+    
+    document.getElementById('contact-link').addEventListener('click', function(e) {
+        e.preventDefault();
+    });
+    
+    
+    // Event listeners for showing contact form popup
+    const openContactPopup = () => openPopup(popup);
+    if (contactLink) contactLink.addEventListener('click', openContactPopup);
+    if (contactFooterLink) contactFooterLink.addEventListener('click', openContactPopup);
+    if (floatingButton) floatingButton.addEventListener('click', openContactPopup);
+    const contactLinkMobile = document.querySelector('#mobile-menu #contact-link');
+    if (contactLinkMobile) contactLinkMobile.addEventListener('click', openContactPopup);
+    
+    // Event listeners for showing 'Join Us' popup
+    const openJoinUsPopup = () => openPopup(joinUsPopup);
+    if (joinUsLink) joinUsLink.addEventListener('click', openJoinUsPopup);
+    if (joinUsFooterLink) joinUsFooterLink.addEventListener('click', openJoinUsPopup);
+    const joinUsLinkMobile = document.querySelector('#mobile-menu #join-us-link');
+    if (joinUsLinkMobile) joinUsLinkMobile.addEventListener('click', openJoinUsPopup);
+    
+    // Close popup functions
+    if (closeButton) closeButton.addEventListener('click', () => closePopup(popup));
+    
+    // Close success popup
+    if (closeSubmitButton) {
+        closeSubmitButton.forEach(button => {
+            button.addEventListener('click', () => closePopup(submitPopup));
+        });
+    }
+    
+    // Event listener for clicking inside the modal should not trigger close
+    popup.addEventListener('click', (e) => e.stopPropagation());
+    joinUsPopup.addEventListener('click', (e) => e.stopPropagation());
+    
+    if (closeJoinUsButton) closeJoinUsButton.addEventListener('click', () => closePopup(joinUsPopup));
+    
+    // Close popup when clicking outside the popup content
+    document.addEventListener('click', (e) => {
+        if (popup && !popup.contains(e.target) && ![contactLink, contactFooterLink, floatingButton, contactLinkMobile].includes(e.target)) {
+            closePopup(popup);
+        }
+        if (joinUsPopup && !joinUsPopup.contains(e.target) && ![joinUsLink, joinUsFooterLink, joinUsLinkMobile].includes(e.target)) {
+            closePopup(joinUsPopup);
+        }
+        if (submitPopup && !submitPopup.contains(e.target) && ![...closeSubmitButton].includes(e.target)) {
+            closePopup(submitPopup);
+        }
+    });
+    
+    // Handle form submission for 'Contact Us'
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            closePopup(popup); // Close the contact popup
+            openPopup(submitPopup); // Open the success message popup
+        });
+    }
+    
+    // Handle form submission for 'Join Us'
+    if (joinUsForm) {
+        joinUsForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            closePopup(joinUsPopup);
+            openPopup(submitPopup);
+        });
+    }
+    
+    // Handle form submission for 'Event Form'
+    if (eventForm) {
+        eventForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            openPopup(submitPopup);
+        });
+    }
+    
+    // General form validation for all forms
+    document.querySelectorAll('form').forEach((form) => {
+        form.addEventListener('submit', (e) => {
+            const name = form.querySelector('[name="name"]').value.trim();
+            const email = form.querySelector('[name="email"]').value.trim();
+            const message = form.querySelector('[name="message"]').value.trim();
+    
+            if (!name || !email || !message) {
+                e.preventDefault();
+                alert('Vänligen fyll i alla obligatoriska fält.');
+            }
+        });
+    });
+    
+    // Open Join Us popup and close Contact Us popup
+    document.querySelector('.join-us-btn').addEventListener('click', () => {
+        closePopup(document.getElementById('contact-popup'));
+        openPopup(document.getElementById('join-us-popup'));
+    });
+    
+    // Close both popups when clicking Cancel
+    document.querySelectorAll('.cancel-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+            closePopup(document.getElementById('contact-popup'));
+            closePopup(document.getElementById('join-us-popup'));
+        });
+    });
+    
+    
+    
+    // Close mobile menu when clicking outside the mobile menu content
+    document.addEventListener('click', function(e) {
+        if (mobileMenu && !mobileMenu.contains(e.target) && e.target !== burgerMenu) {
+            mobileMenu.classList.remove('open');
+            burgerMenu.classList.remove('open');
+        }
+    });
+    
+    // Close mobile menu when clicking on any menu link
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            mobileMenu.classList.remove('open');
+            burgerMenu.classList.remove('open');
+        });
+    });
+    
+    // Add an event listener for all desktop menu links
+    document.querySelectorAll('.desktop-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            mobileMenu.classList.remove('open');
+            burgerMenu.classList.remove('open');
+        });
+    });
+    </script>
 
 
 <script>
@@ -1007,7 +995,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     <script src="scripts.js"></script>
-    
-
 </body>
 </html>

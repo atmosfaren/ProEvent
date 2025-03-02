@@ -130,15 +130,15 @@
                 <div class="form-group">
                     <select id="contact-topic" name="topic" required>
                         <option value="" disabled selected>Select a topic</option>
-                        <option value="collaboration">Collaboration Opportunities</option>
-                        <option value="event">Event Planning or Hosting</option>
-                        <option value="feedback">Feedback or Suggestions</option>
-                        <option value="support">Technical Support</option>
-                        <option value="production">Production Services</option>
-                        <option value="agency">Agency or Talent Services</option>
+                        <option value="collaboration opportunities">Collaboration Opportunities</option>
+                        <option value="event planning or hosting">Event Planning or Hosting</option>
+                        <option value="feedback or suggestions">Feedback or Suggestions</option>
+                        <option value="technical support">Technical Support</option>
+                        <option value="production services">Production Services</option>
+                        <option value="agency or talent services">Agency or Talent Services</option>
                         <option value="partnerships">Partnerships</option>
-                        <option value="roles">Event Roles or Opportunities</option>
-                        <option value="general">General Inquiry</option>
+                        <option value="event roles or opportunities">Event Roles or Opportunities</option>
+                        <option value="general inquiry">General Inquiry</option>
                     </select>
                     <label for="contact-topic">How can we help?</label>
                 </div>
@@ -208,15 +208,15 @@
             <div class="form-group">
                 <select id="contact-topic-2" name="topic" required>
                     <option value="" disabled selected>Select a topic</option>
-                    <option value="collaboration">Collaboration Opportunities</option>
-                    <option value="event">Event Planning or Hosting</option>
-                    <option value="feedback">Feedback or Suggestions</option>
-                    <option value="support">Technical Support</option>
-                    <option value="production">Production Services</option>
-                    <option value="agency">Agency or Talent Services</option>
-                    <option value="partnerships">Partnerships</option>
-                    <option value="roles">Event Roles or Opportunities</option>
-                    <option value="general">General Inquiry</option>
+                        <option value="collaboration opportunities">Collaboration Opportunities</option>
+                        <option value="event planning or hosting">Event Planning or Hosting</option>
+                        <option value="feedback or suggestions">Feedback or Suggestions</option>
+                        <option value="technical support">Technical Support</option>
+                        <option value="production services">Production Services</option>
+                        <option value="agency or talent services">Agency or Talent Services</option>
+                        <option value="partnerships">Partnerships</option>
+                        <option value="event roles or opportunities">Event Roles or Opportunities</option>
+                        <option value="general inquiry">General Inquiry</option>
                 </select>
                 <label for="contact-topic-2">How can we help?</label>
             </div>
@@ -321,26 +321,20 @@ if (typeof contactUsButtonJoin === "undefined") {
     let contactUsButtonJoin = document.getElementById("contact-us-btn");
 }
 
-
-document.addEventListener("DOMContentLoaded", function () {
-    const joinUsButton = document.getElementById("join-us-btn");
-    if (joinUsButton) {
-        joinUsButton.addEventListener("click", function () {
-            console.log("Join Us button clicked!");
-        });
-    } else {
-        console.warn("⚠️ Warning: join-us-btn not found in the DOM! This might be expected if the button is added dynamically.");
-    }
-});
-
-
 document.addEventListener("DOMContentLoaded", function () {
     // Hämta element för burgermenyn och mobilmenyn
     const burgerMenu = document.getElementById("burger-menu");
     const mobileMenu = document.getElementById("mobile-menu");
+
+    // Kontrollera om mobileMenu finns i DOM:en innan koden körs
+    if (!mobileMenu) {
+        console.error("❌ mobileMenu not found in the DOM! Check if the element exists.");
+        return; // Avsluta funktionen om elementet saknas
+    }
+
     const mobileMenuLinks = document.querySelectorAll(".mobile-menu a");
 
-    if (burgerMenu && mobileMenu) {
+    if (burgerMenu) {
         burgerMenu.addEventListener("click", function (event) {
             event.stopPropagation();
             mobileMenu.classList.toggle("open");
@@ -363,7 +357,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     } else {
-        console.error("❌ Burger menu or mobile menu not found!");
+        console.error("❌ Burger menu not found in the DOM!");
     }
 });
 
@@ -513,12 +507,6 @@ document.querySelector('.join-us-btn').addEventListener('click', () => {
     openPopup(document.getElementById('join-us-popup'));
 });
 
-// Open Contact Us popup and close Join Us popup
-document.querySelector('.contact-us-btn').addEventListener('click', () => {
-    closePopup(document.getElementById('join-us-popup'));
-    openPopup(document.getElementById('contact-popup'));
-});
-
 // Close both popups when clicking Cancel
 document.querySelectorAll('.cancel-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -652,7 +640,8 @@ changeQuote();
     .previous-clients-page .nav-left a:hover,
     .previous-clients-page .nav-right a:hover {
         color: rgba(128, 128, 128, 0.5) !important;
-    }</style>
+    }
+</style>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {

@@ -1,6 +1,5 @@
 // Select the elements
 const contactUsButtonJoin = document.getElementById("contact-us-btn");
-const contactLink = document.getElementById('contact-link');
 const contactFooterLink = document.getElementById('contact-footer-link');
 const floatingButton = document.querySelector('.floating-btn');
 const popup = document.getElementById('contact-popup');
@@ -17,10 +16,6 @@ const contactForm = document.getElementById('contact-form');
 const eventForm = document.getElementById('event-form');
 const openPopup = (popupElement) => popupElement.classList.add('show');
 const closePopup = (popupElement) => popupElement.classList.remove('show');
-
-if (!window.joinUsButtonContact) {
-    window.joinUsButtonContact = document.getElementById("join-us-btn");
-}
 
 document.addEventListener("DOMContentLoaded", function () {
     // Hämta element för burgermenyn och mobilmenyn
