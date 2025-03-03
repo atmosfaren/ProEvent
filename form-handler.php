@@ -74,14 +74,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailContent = $emailBody;
     }
 
-    // Skicka e-post till mottagarna
+    // Skicka e-post till mottagarna med "-f" flaggan
     $allSent = true;
     foreach ($proeventEmails as $recipient) {
-        if (!mail($recipient, $subject, $emailContent, $headers, "-f $fromEmail")) {
+        if (!mail($recipient, $subject, $emailContent, $headers, "-f info@proevnt.com")) {
             $allSent = false;
             error_log("❌ Failed to send email to $recipient.");
+            echo json_encode(["status" => "error", "message" => "Email to $recipient failed."]);
         }
-    }
+    }    
 
     // Skicka bekräftelsemail till användaren
     if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -97,9 +98,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $confirmationBody .= "We have received your inquiry regarding \"$topic\" and will get back to you as soon as possible.\n\n";
         $confirmationBody .= "Best Regards,\nProEvent Team";
 
-        if (!mail($email, $confirmationSubject, $confirmationBody, $confirmationHeaders, "-f $fromEmail")) {
+        if (!mail($email, $confirmationSubject, $confirmationBody, $confirmationHeaders, "-f info@proevnt.com")) {
             error_log("❌ Failed to send confirmation email to $email.");
-        }
+        }        
     }
 
     // Skicka JSON-svar baserat på resultatet
