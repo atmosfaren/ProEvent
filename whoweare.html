@@ -384,6 +384,12 @@ const eventForm = document.getElementById('event-form');
 const openPopup = (popupElement) => popupElement.classList.add('show');
 const closePopup = (popupElement) => popupElement.classList.remove('show');
 
+document.querySelectorAll("form").forEach(form => {
+        form.addEventListener("submit", function() {
+            this.querySelector(".submit-btn").disabled = true;
+        });
+    });
+
 if (typeof contactUsButtonJoin === "undefined") {
     let contactUsButtonJoin = document.getElementById("contact-us-btn");
 }

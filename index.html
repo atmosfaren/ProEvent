@@ -401,6 +401,13 @@
         let contactUsButtonJoin = document.getElementById("contact-us-btn");
     }
     
+    document.querySelectorAll("form").forEach(form => {
+        form.addEventListener("submit", function() {
+            this.querySelector(".submit-btn").disabled = true;
+        });
+    });
+
+
     document.addEventListener("DOMContentLoaded", function () {
         // Hämta element för burgermenyn och mobilmenyn
         const burgerMenu = document.getElementById("burger-menu");
